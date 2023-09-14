@@ -16818,12 +16818,3 @@
             Y: =344
             ZIndex: =5
 
-    "TextInputCanvas2 As 'Entrada de texto'":
-        DisplayMode: =DisplayMode.Edit
-        Height: =32
-        Placeholder: ="Teste"
-        Width: =320
-        X: =675
-        Y: =30
-        ZIndex: =3
-
