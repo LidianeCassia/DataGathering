@@ -1,0 +1,203 @@
+Start As screen:
+    BackgroundImage: =
+    Fill: =RGBA(207, 207, 207, 0.7)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Timer1 As timer:
+        AutoStart: =true
+        BorderColor: =RGBA(0, 120, 212, 1)
+        BorderStyle: =BorderStyle.None
+        DisabledBorderColor: =RGBA(242, 242, 241, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Duration: =3000
+        Fill: =RGBA(0, 120, 212, 1)
+        Font: =Font.'Segoe UI'
+        HoverBorderColor: =RGBA(16, 110, 190, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(16, 110, 190, 1)
+        OnTimerEnd: =Navigate(MainContainer1,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(16, 110, 190, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(16, 110, 190, 1)
+        Repeat: =true
+        Visible: =false
+        X: =96
+        Y: =100
+        ZIndex: =1
+
+    Image1 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =315
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =R
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =398
+        X: =500
+        Y: =318
+        ZIndex: =2
+
+    Label1 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(14, 43, 99, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =75
+        Size: =26
+        Text: ="Welcome "&  User().FullName
+        Width: =679
+        X: =332
+        Y: =217
+        ZIndex: =3
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =16
+
+        Image4 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =logo
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Width: =99
+            X: =1251
+            Y: =657
+            ZIndex: =4
+
+        Rectangle4 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(161, 159, 157, 1)
+            Fill: =RGBA(14, 43, 99, 1)
+            FocusedBorderThickness: =4
+            Height: =68
+            HoverFill: =RGBA(0, 120, 212, 1)
+            PressedFill: =RGBA(0, 120, 212, 1)
+            Width: =1338
+            X: =18
+            Y: =14
+            ZIndex: =5
+
+        Label2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(207, 207, 207, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =72
+            Size: =26
+            Text: ="Data Gathering"
+            Width: =639
+            X: =9
+            Y: =15
+            ZIndex: =6
+
+        Rectangle2_108 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(14, 43, 99, 1)
+            Height: =5
+            Width: =437
+            X: =18
+            Y: =82
+            ZIndex: =7
+
+        Rectangle2_109 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(0, 79, 158, 1)
+            Height: =5
+            Width: =298
+            X: =454
+            Y: =82
+            ZIndex: =8
+
+        Rectangle2_110 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(1, 177, 236, 1)
+            Height: =5
+            Width: =169
+            X: =752
+            Y: =82
+            ZIndex: =9
+
+        Rectangle2_111 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(239, 125, 0, 1)
+            Height: =5
+            Width: =112
+            X: =921
+            Y: =82
+            ZIndex: =10
+
+        Rectangle2_112 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(251, 186, 0, 1)
+            Height: =5
+            Width: =89
+            X: =1033
+            Y: =82
+            ZIndex: =11
+
+        Rectangle2_113 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(80, 175, 71, 1)
+            Height: =5
+            Width: =97
+            X: =1123
+            Y: =82
+            ZIndex: =12
+
+        Rectangle2_114 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(175, 202, 11, 1)
+            Height: =5
+            Width: =71
+            X: =1220
+            Y: =82
+            ZIndex: =13
+
+        Rectangle2_115 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(90, 50, 138, 1)
+            Height: =5
+            Width: =68
+            X: =1289
+            Y: =82
+            ZIndex: =14
+
+        Rectangle2_116 As rectangle:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Fill: =RGBA(231, 38, 131, 1)
+            Height: =5
+            Width: =39
+            X: =1309
+            Y: =82
+            ZIndex: =15
+
