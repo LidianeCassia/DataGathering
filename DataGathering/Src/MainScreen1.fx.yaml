@@ -7072,3 +7072,23 @@
             Y: =344
             ZIndex: =5
 
+    Icon2 As icon.History:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(207, 207, 207, 1)
+        DisabledBorderColor: =RGBA(245, 245, 245, 1)
+        DisabledColor: =RGBA(225, 223, 221, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(16, 110, 190, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Screen1,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =RGBA(16, 110, 190, 1)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =20
+        X: =1278
+        Y: =21
+        ZIndex: =3
+

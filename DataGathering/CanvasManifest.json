@@ -111,7 +111,7 @@
     "DocumentType": "App",
     "EnableInstrumentation": false,
     "FileID": "9a6aa971-f799-4229-a2ed-afcf97e270b2",
-    "Id": "9a6aa971-f799-4229-a2ed-afcf97e270b2",
+    "Id": "50dbdee1-e81f-4bf1-b1fc-2c68a9a5e4d5",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
     "ManualOfflineProfileId": "",
@@ -133,8 +133,8 @@
   },
   "ScreenOrder": [
     "Start",
+    "Screen1",
     "MainScreen1",
-    "AddMultilpletTest",
-    "Screen1"
+    "AddMultilpletTest"
   ]
 }

@@ -1,3 +1,137 @@
 Screen1 As screen:
+    Fill: =RGBA(207, 207, 207, 1)
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Container3 As groupContainer.horizontalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =68
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutMode: =LayoutMode.Auto
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1330
+        X: =21
+        Y: =24
+        ZIndex: =2
+
+        Cabecalho_3 As Cabecalho:
+            LayoutMinWidth: =640
+            X: =36
+            Y: =369
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =4
+        Height: =644
+        HoverFill: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        Width: =1330
+        X: =21
+        Y: =106
+        ZIndex: =3
+
+    Button1 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(207, 207, 207, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(14, 43, 99, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =278
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(14, 43, 99, 0.8)
+        OnSelect: |-
+            =Set(Open,true);
+            Set(Close,false);
+            Notify("Open with Sucess!",NotificationType.Success);
+            Navigate(MainScreen1,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(14, 43, 99, 0.8)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =30
+        Text: ="Open"
+        Width: =224
+        X: =129
+        Y: =225
+        ZIndex: =4
+
+    Button1_1 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(207, 207, 207, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(14, 43, 99, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =278
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(14, 43, 99, 0.8)
+        OnSelect: |-
+            =Set(Open,false);
+            Set(Close,true);
+            Notify("Close with Sucess!",NotificationType.Success);
+            Navigate(MainScreen1,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(14, 43, 99, 0.8)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =30
+        Text: ="Close"
+        Width: =224
+        X: =403
+        Y: =225
+        ZIndex: =5
+
+    Button1_2 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(207, 207, 207, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(14, 43, 99, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =88
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(14, 43, 99, 0.8)
+        OnSelect: |-
+            =Set(Open,false);
+            Set(Close,true);
+            Notify("Close with Sucess!",NotificationType.Success);
+            Navigate(MainScreen1,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(14, 43, 99, 0.8)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =26
+        Text: ="Next"
+        Width: =224
+        X: =1062
+        Y: =516
+        ZIndex: =6
 
