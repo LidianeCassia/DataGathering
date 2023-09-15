@@ -1051,8 +1051,8 @@
                                 Size: =13
                                 Tooltip: =Parent.DisplayName
                                 Width: =Parent.Width - 60
-                                X: =30
-                                Y: =DataCardKey160.Y + DataCardKey160.Height + 5
+                                X: =45
+                                Y: =47
                                 ZIndex: =2
 
                             ErrorMessage160 As label:
