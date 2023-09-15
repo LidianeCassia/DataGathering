@@ -186,8 +186,8 @@
                         ZIndex: =13
 
                 "RecordsGallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
-                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(245, 245, 245, 1)
+                    BorderThickness: =1
                     Default: =CurrentItem
                     DelayItemLoading: =true
                     Fill: =RGBA(250, 250, 250, 1)
@@ -201,6 +201,7 @@
                     TemplateFill: =If(Self.IsSelected, RGBA(230, 230, 230, 1), RGBA(0, 0, 0, 0))
                     TemplatePadding: =0
                     TemplateSize: =116
+                    Transition: =Transition.Pop
                     ZIndex: =3
 
                     Title2 As label:
@@ -208,7 +209,7 @@
                         DisabledColor: =RGBA(161, 159, 157, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
+                        Height: =25
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =12
@@ -216,7 +217,7 @@
                         PaddingTop: =0
                         Text: =ThisItem.Offer_ID
                         VerticalAlign: =VerticalAlign.Top
-                        Width: =Parent.TemplateWidth - 300
+                        Width: =155
                         X: =102
                         Y: =8
                         ZIndex: =1
@@ -226,7 +227,7 @@
                         DisabledColor: =RGBA(161, 159, 157, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
+                        Height: =21
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =12
@@ -235,7 +236,7 @@
                         Size: =12
                         Text: =ThisItem.Market_SPOC.DisplayName
                         VerticalAlign: =VerticalAlign.Top
-                        Width: =Title2.Width
+                        Width: =326
                         X: =24
                         Y: =57
                         ZIndex: =2
@@ -245,7 +246,7 @@
                         DisabledColor: =RGBA(161, 159, 157, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
-                        Height: =Self.Size * 1.8
+                        Height: =19
                         OnSelect: =Select(Parent)
                         PaddingBottom: =0
                         PaddingLeft: =12
@@ -254,7 +255,7 @@
                         Size: =12
                         Text: =ThisItem.End_Market_Responsible.DisplayName
                         VerticalAlign: =VerticalAlign.Top
-                        Width: =Title2.Width
+                        Width: =312
                         X: =24
                         Y: =78
                         ZIndex: =3
@@ -269,7 +270,7 @@
                         FocusedBorderThickness: =4
                         Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 0)
-                        HoverColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(14, 43, 99, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.ChevronRight
                         OnSelect: =Select(Parent)
@@ -297,7 +298,7 @@
 
                     Rectangle2 As rectangle:
                         BorderColor: =RGBA(0, 0, 0, 0)
-                        Fill: =RGBA(0, 120, 212, 1)
+                        Fill: =RGBA(14, 43, 99, 1)
                         Height: =Parent.TemplateHeight - Separator5.Height
                         OnSelect: =Select(Parent)
                         Visible: =ThisItem.IsSelected
@@ -431,12 +432,12 @@
                         FontWeight: =FontWeight.Semibold
                         PaddingLeft: =30
                         Size: =13
-                        Text: =RecordsGallery1.Selected.Supplier_Code
+                        Text: =RecordsGallery1.Selected.Offer_ID
                         ZIndex: =2
 
                     SubmitFormButton1 As icon:
                         BorderColor: =RGBA(0, 0, 0, 0)
-                        Color: =RGBA(0, 120, 212, 1)
+                        Color: =RGBA(14, 43, 99, 1)
                         DisabledBorderColor: =RGBA(245, 245, 245, 1)
                         DisabledColor: =RGBA(225, 223, 221, 1)
                         DisabledFill: =RGBA(0, 0, 0, 0)
@@ -446,7 +447,9 @@
                         HoverColor: =RGBA(16, 110, 190, 1)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.Check
-                        OnSelect: =SubmitForm(Form2)
+                        OnSelect: |-
+                            =SubmitForm(Form2);
+                            UpdateContext({ editMode: false})
                         PaddingBottom: =12
                         PaddingLeft: =12
                         PaddingRight: =12
@@ -461,7 +464,7 @@
 
                     ResetFormButton1 As icon:
                         BorderColor: =RGBA(0, 0, 0, 0)
-                        Color: =RGBA(0, 120, 212, 1)
+                        Color: =RGBA(14, 43, 99, 1)
                         DisabledBorderColor: =RGBA(245, 245, 245, 1)
                         DisabledColor: =RGBA(225, 223, 221, 1)
                         DisabledFill: =RGBA(0, 0, 0, 0)
@@ -507,7 +510,7 @@
                         PressedColor: =RGBA(16, 110, 190, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         TabIndex: =0
-                        Visible: =And(!editMode, !newMode, !deleteMode)
+                        Visible: =And(!editMode, !newMode, !deleteMode, !IsEmpty('Data GatheringMain'))
                         Width: =50
                         ZIndex: =5
 
@@ -533,7 +536,7 @@
                         PressedColor: =RGBA(16, 110, 190, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         TabIndex: =0
-                        Visible: =And(!editMode, !newMode, !deleteMode)
+                        Visible: =And(!editMode, !newMode, !deleteMode, !IsEmpty('Data GatheringMain'))
                         Width: =50
                         ZIndex: =6
 
@@ -605,7 +608,7 @@
                                 Color: =RGBA(50, 49, 48, 1)
                                 Default: |-
                                     =
-                                    If(newMode, If(IsBlank('Data GatheringMain'), 1500, Last('Data GatheringMain').Item_Number),ThisItem.Item_Number)
+                                    If(newMode, If(IsBlank('Data GatheringMain'), 1500, Last('Data GatheringMain').Item_Number+1),ThisItem.Item_Number)
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
@@ -952,7 +955,7 @@
                                 Color: =RGBA(50, 49, 48, 1)
                                 Default: |-
                                     =
-                                    If(newMode, If(IsBlank('Data GatheringMain'), 2444010400, Last('Data GatheringMain').Offer_ID),ThisItem.Offer_ID)
+                                    If(newMode, If(IsBlank('Data GatheringMain'), 2444010400, Last('Data GatheringMain').Offer_ID+1),ThisItem.Offer_ID)
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
@@ -6929,8 +6932,8 @@
                     FillPortions: =1
                     FocusedBorderThickness: =4
                     Font: =Font.'Segoe UI'
-                    Size: =13
-                    Text: ="Tem certeza de que deseja excluir este registro?"
+                    Size: =20
+                    Text: ="Are you sure you want to delete this record?"
                     ZIndex: =25
 
                 ConfirmDeleteButtonBarContainer1 As groupContainer.horizontalAutoLayoutContainer:
@@ -6952,23 +6955,19 @@
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         DisabledColor: =RGBA(161, 159, 157, 1)
                         DisabledFill: =RGBA(242, 242, 241, 0)
-                        Fill: =RGBA(0, 120, 212, 1)
+                        Fill: =RGBA(14, 43, 99, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
                         HoverBorderColor: =RGBA(0, 0, 0, 0)
                         HoverColor: =RGBA(255, 255, 255, 1)
-                        HoverFill: =RGBA(16, 110, 190, 1)
+                        HoverFill: =RGBA(14, 43, 99, 0.8)
                         OnSelect: |-
                             =UpdateContext({ deleteMode: false, deleteCancelled: true })
                         PressedBorderColor: =RGBA(0, 69, 120, 1)
                         PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(16, 110, 190, 1)
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
+                        PressedFill: =RGBA(14, 43, 99, 0.8)
                         Size: =15
-                        Text: ="Cancelar"
+                        Text: ="Cancel"
                         ZIndex: =27
 
                     ConfirmDeleteButton1 As button:
@@ -6977,23 +6976,39 @@
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         DisabledColor: =RGBA(161, 159, 157, 1)
                         DisabledFill: =RGBA(242, 242, 241, 0)
-                        Fill: =RGBA(0, 120, 212, 1)
+                        Fill: =RGBA(14, 43, 99, 1)
                         Font: =Font.'Segoe UI'
                         FontWeight: =FontWeight.Semibold
                         HoverBorderColor: =RGBA(0, 0, 0, 0)
                         HoverColor: =RGBA(255, 255, 255, 1)
-                        HoverFill: =RGBA(16, 110, 190, 1)
-                        OnSelect: |-
-                            =Remove([@'End-Market'], selectedRecord); If(IsEmpty(Errors([@'End-Market'], selectedRecord)), UpdateContext( { CurrentItem: First([@'End-Market']), itemSelected: false, editMode: false, newMode: false, deleteMode: false }));
+                        HoverFill: =RGBA(14, 43, 99, 0.8)
+                        OnSelect: |
+                            =Remove(
+                                [@'Data GatheringMain'],
+                                selectedRecord 
+                            );
+                            If(
+                                IsEmpty(
+                                    Errors(
+                                        [@'Data GatheringMain'],
+                                        selectedRecord
+                                    )
+                                ),
+                                UpdateContext(
+                                    {
+                                        CurrentItem: First([@'Data GatheringMain']),
+                                        itemSelected: false,
+                                        editMode: false,
+                                        newMode: false,
+                                        deleteMode: false
+                                    }
+                                )
+                            );
                         PressedBorderColor: =RGBA(0, 69, 120, 1)
                         PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(16, 110, 190, 1)
-                        RadiusBottomLeft: =0
-                        RadiusBottomRight: =0
-                        RadiusTopLeft: =0
-                        RadiusTopRight: =0
+                        PressedFill: =RGBA(14, 43, 99, 0.8)
                         Size: =15
-                        Text: ="Excluir"
+                        Text: ="Delete"
                         ZIndex: =28
 
     Container1 As groupContainer.manualLayoutContainer:
@@ -7122,7 +7137,7 @@
         DisabledFill: =RGBA(0, 0, 0, 0)
         FocusedBorderThickness: =4
         HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: =RGBA(16, 110, 190, 1)
+        HoverColor: =RGBA(207, 207, 207, 1)
         HoverFill: =RGBA(0, 0, 0, 0)
         Icon: =Icon.BackArrow
         OnSelect: =Navigate(Screen1,ScreenTransition.Fade)
