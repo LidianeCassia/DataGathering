@@ -55,127 +55,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.Market_SPOC_Column1.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.Market_SPOC_Column1.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 9,
-                  "charOffset": 8,
-                  "snippet": {
-                    "text": ".field_14"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "AddMultilpletTest",
-                "type": "AddMultilpletTest.DataTable1.Market_SPOC_Column1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "field_14"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.End_Market_Responsible_Column1.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.End_Market_Responsible_Column1.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 9,
-                  "charOffset": 8,
-                  "snippet": {
-                    "text": ".field_15"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "AddMultilpletTest",
-                "type": "AddMultilpletTest.DataTable1.End_Market_Responsible_Column1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "field_15"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.Anexos_Column1.Text"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.Anexos_Column1.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 7,
-                  "charOffset": 8,
-                  "snippet": {
-                    "text": ".Anexos"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "AddMultilpletTest",
-                "type": "AddMultilpletTest.DataTable1.Anexos_Column1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "Text",
-              "Table"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.DeleteConfirmDialogContainer1.ConfirmDeleteButtonBarContainer1.ConfirmDeleteButton1.OnSelect"
                 }
               ],
@@ -608,6 +487,127 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.Market_SPOC_Column1.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.Market_SPOC_Column1.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 9,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".field_14"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "AddMultilpletTest",
+                "type": "AddMultilpletTest.DataTable1.Market_SPOC_Column1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "field_14"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.End_Market_Responsible_Column1.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.End_Market_Responsible_Column1.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 9,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".field_15"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "AddMultilpletTest",
+                "type": "AddMultilpletTest.DataTable1.End_Market_Responsible_Column1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "field_15"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.Anexos_Column1.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AddMultilpletTest.DataTable1.Anexos_Column1.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 7,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".Anexos"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "AddMultilpletTest",
+                "type": "AddMultilpletTest.DataTable1.Anexos_Column1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Text",
+              "Table"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Menu_1.Container2.IconeRecolherVisual.AccessibleLabel"
                 }
               ],
@@ -771,126 +771,6 @@
                 "member": "TabIndex",
                 "module": "Menu_1",
                 "type": "Menu_1.Container2.OpcoesDeMenu"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AddMultilpletTest.TextInputCanvas1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AddMultilpletTest.TextInputCanvas1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "AddMultilpletTest",
-                "type": "AddMultilpletTest.TextInputCanvas1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AddMultilpletTest.TextInputCanvas1_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AddMultilpletTest.TextInputCanvas1_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "AddMultilpletTest",
-                "type": "AddMultilpletTest.TextInputCanvas1_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AddMultilpletTest.Icon3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AddMultilpletTest.Icon3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "AddMultilpletTest",
-                "type": "AddMultilpletTest.Icon3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 6
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "AddMultilpletTest.Icon3.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "AddMultilpletTest.Icon3.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "AddMultilpletTest",
-                "type": "AddMultilpletTest.Icon3"
               }
             }
           ],
@@ -2948,35 +2828,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen1"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen1",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "Screen1",
-                "type": "Screen1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Low"
-          },
-          "ruleId": "acc-ReadableScreenNameNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "MainScreen1.Icon2.AccessibleLabel"
                 }
               ],
@@ -3037,17 +2888,166 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.Close"
+                  "fullyQualifiedName": "AddMultilpletTest.TextInputCanvas1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.Close",
+                  "fullyQualifiedName": "AddMultilpletTest.TextInputCanvas1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "Close",
+                "member": "AccessibleLabel",
+                "module": "AddMultilpletTest",
+                "type": "AddMultilpletTest.TextInputCanvas1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AddMultilpletTest.TextInputCanvas1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AddMultilpletTest.TextInputCanvas1_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AddMultilpletTest",
+                "type": "AddMultilpletTest.TextInputCanvas1_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AddMultilpletTest.Icon3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AddMultilpletTest.Icon3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "AddMultilpletTest",
+                "type": "AddMultilpletTest.Icon3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "AddMultilpletTest.Icon3.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "AddMultilpletTest.Icon3.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "AddMultilpletTest",
+                "type": "AddMultilpletTest.Icon3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 7
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Screen1"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen1",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "module": "Screen1",
+                "type": "Screen1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Low"
+          },
+          "ruleId": "acc-ReadableScreenNameNeeded",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.Open"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.Open",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "Open",
                 "module": "App",
                 "type": "App"
               }
@@ -3067,17 +3067,17 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.Open"
+                  "fullyQualifiedName": "App.Close"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "App.Open",
+                  "fullyQualifiedName": "App.Close",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "Open",
+                "member": "Close",
                 "module": "App",
                 "type": "App"
               }
