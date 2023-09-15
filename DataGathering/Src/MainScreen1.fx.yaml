@@ -566,7 +566,7 @@
                                 Color: =RGBA(50, 49, 48, 1)
                                 Default: |-
                                     =
-                                    //If(IsBlank('Data GatheringMain'); 1500; LastN('Data GatheringMain';1;
+                                    If(newMode, If(IsBlank('Data GatheringMain'), 1500, Last('Data GatheringMain').Item_Number),ThisItem.Item_Number)
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
