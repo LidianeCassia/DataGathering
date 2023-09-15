@@ -135,3 +135,36 @@ Screen1 As screen:
         Y: =516
         ZIndex: =6
 
+    Button1_3 As button:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =RGBA(207, 207, 207, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(14, 43, 99, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Height: =278
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =RGBA(14, 43, 99, 0.8)
+        OnSelect: |-
+            =Set(Open,false);
+            Set(Close,true);
+            Notify("Close with Sucess!",NotificationType.Success);
+            Navigate(MainScreen1,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(14, 43, 99, 0.8)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Size: =30
+        Text: ="Close"
+        Width: =224
+        X: =687
+        Y: =225
+        ZIndex: =7
+
