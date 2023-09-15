@@ -134,6 +134,7 @@
   "ScreenOrder": [
     "Start",
     "MainScreen1",
-    "AddMultilple"
+    "AddMultilpletTest",
+    "Screen1"
   ]
 }

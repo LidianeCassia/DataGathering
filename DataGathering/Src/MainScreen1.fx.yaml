@@ -213,7 +213,7 @@
                         PaddingLeft: =12
                         PaddingRight: =0
                         PaddingTop: =0
-                        Text: =ThisItem.Total_Spend_MainCarriage_Lane
+                        Text: =ThisItem.Offer_ID
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Parent.TemplateWidth - 86
                         X: =16
@@ -232,7 +232,7 @@
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =12
-                        Text: =ThisItem.Valid_From
+                        Text: =ThisItem.Market_SPOC.DisplayName
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Title2.Width
                         X: =Title2.X
@@ -251,7 +251,7 @@
                         PaddingRight: =0
                         PaddingTop: =0
                         Size: =12
-                        Text: =ThisItem.Valid_To
+                        Text: =ThisItem.End_Market_Responsible.DisplayName
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Title2.Width
                         X: =Title2.X

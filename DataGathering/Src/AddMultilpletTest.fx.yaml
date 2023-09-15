@@ -1,4 +1,4 @@
-AddMultilple As screen:
+AddMultilpletTest As screen:
     Fill: =RGBA(207, 207, 207, 1)
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
 
