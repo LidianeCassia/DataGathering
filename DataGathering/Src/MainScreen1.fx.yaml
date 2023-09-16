@@ -130,6 +130,7 @@
                         PressedBorderColor: =RGBA(0, 0, 0, 0)
                         PressedColor: =RGBA(16, 110, 190, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
+                        Visible: =Open
                         Width: =44
                         ZIndex: =10
 
@@ -146,6 +147,7 @@
                         Height: =44
                         Size: =13
                         Text: ="New"
+                        Visible: =Open
                         ZIndex: =11
 
                     Icon1 As icon.Bug:
@@ -170,6 +172,7 @@
                         PressedColor: =RGBA(16, 110, 190, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         Tooltip: ="Add Multiple"
+                        Visible: =Open
                         ZIndex: =12
 
                     Label3 As label:
@@ -183,6 +186,7 @@
                         Font: =Font.'Segoe UI'
                         Size: =13
                         Text: ="Add Multiple"
+                        Visible: =Open
                         ZIndex: =13
 
                 "RecordsGallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
