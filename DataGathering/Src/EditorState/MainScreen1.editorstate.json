@@ -35206,7 +35206,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%DeleteConfirmDialogContainer.ID%",
       "Name": "DeleteConfirmDialogContainer1",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -36162,7 +36162,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "EditIconButton1",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -62456,7 +62456,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ResetFormButton1",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -62693,7 +62693,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%RightContainer.ID%",
       "Name": "RightContainer1",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -64686,7 +64686,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%SidebarContainer.ID%",
       "Name": "SidebarContainer1",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

@@ -41,8 +41,8 @@ Screen1 As screen:
         BorderStyle: =BorderStyle.None
         Color: =RGBA(207, 207, 207, 1)
         DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
+        DisabledColor: =RGBA(207, 207, 207, 1)
+        DisabledFill: =RGBA(14, 43, 99, 0.5)
         DisplayMode: =If(Open,DisplayMode.Disabled,DisplayMode.Edit)
         Fill: =RGBA(14, 43, 99, 1)
         Font: =Font.'Segoe UI'
@@ -76,7 +76,7 @@ Screen1 As screen:
         Color: =RGBA(207, 207, 207, 1)
         DisabledBorderColor: =RGBA(0, 0, 0, 0)
         DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
+        DisabledFill: =RGBA(14, 43, 99, 0.5)
         DisplayMode: =If(Close,DisplayMode.Disabled,DisplayMode.Edit)
         Fill: =RGBA(14, 43, 99, 1)
         Font: =Font.'Segoe UI'
@@ -169,15 +169,15 @@ Screen1 As screen:
     Icon6 As icon.Add:
         BorderColor: =RGBA(0, 0, 0, 0)
         Color: |-
-            =If(Open, 
-            RGBA(207, 207, 207, 1)
+            =If(Open, Color.DarkGreen,
+            RGBA(207, 207, 207, 1))
         DisabledBorderColor: =RGBA(245, 245, 245, 1)
         DisabledColor: =RGBA(225, 223, 221, 1)
         DisabledFill: =RGBA(0, 0, 0, 0)
         FocusedBorderThickness: =4
         Height: =40
         HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: =RGBA(16, 110, 190, 1)
+        HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =RGBA(0, 0, 0, 0)
         Icon: =Icon.Unlock
         PressedBorderColor: =RGBA(0, 0, 0, 0)
@@ -190,7 +190,9 @@ Screen1 As screen:
 
     Icon6_1 As icon.Add:
         BorderColor: =RGBA(0, 0, 0, 0)
-        Color: =RGBA(207, 207, 207, 1)
+        Color: |-
+            =If(Close, Color.DarkGreen,
+            RGBA(207, 207, 207, 1))
         DisabledBorderColor: =RGBA(245, 245, 245, 1)
         DisabledColor: =RGBA(225, 223, 221, 1)
         DisabledFill: =RGBA(0, 0, 0, 0)
