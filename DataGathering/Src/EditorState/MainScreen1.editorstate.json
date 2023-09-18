@@ -35519,7 +35519,14 @@
         "PaddingBottom",
         "PaddingTop",
         "TabIndex",
-        "Visible"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "And(!editMode, !newMode, !deleteMode)",
+          "InvariantPropertyName": "Visible",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
@@ -36252,7 +36259,14 @@
         "PaddingLeft",
         "PaddingRight",
         "TabIndex",
-        "Visible"
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "And(!editMode, !newMode, !deleteMode)",
+          "InvariantPropertyName": "Visible",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        }
       ],
       "DynamicProperties": [
         {
