@@ -7177,3 +7177,11 @@
         Y: =16
         ZIndex: =3
 
+    "Progress1 As 'Barra de Progresso'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =45
+        Width: =450
+        X: =810
+        Y: =35
+        ZIndex: =4
+
