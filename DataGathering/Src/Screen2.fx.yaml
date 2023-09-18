@@ -1,0 +1,19 @@
+Screen2 As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    Label7 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =768
+        Overflow: =Overflow.Scroll
+        Size: =13
+        Text: =RetornoJson
+        Width: =1366
+        ZIndex: =1
+

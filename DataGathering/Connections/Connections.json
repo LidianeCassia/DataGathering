@@ -66,6 +66,9 @@
           "Equipment": {
             "tableName": "2479c775-1120-4f73-8980-c403ffc674b0"
           },
+          "Input em massa - temporário": {
+            "tableName": "a3961367-7113-4299-8fe1-110818779efd"
+          },
           "Port": {
             "tableName": "aae5083b-255d-47d0-8699-c6f2852a2bfc"
           },
@@ -86,7 +89,8 @@
       "Equipment",
       "DataDefault",
       "Commodity",
-      "Carrier"
+      "Carrier",
+      "Input em massa - temporário"
     ],
     "dependencies": {},
     "dependents": [

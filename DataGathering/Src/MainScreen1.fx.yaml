@@ -133,7 +133,7 @@
                         LayoutMinHeight: =40
                         OnSelect: |-
                             =UpdateContext({CtxImport:true});
-                            NewForm(Form1)
+                            NewForm(formDoInput)
                         PaddingBottom: =5
                         PaddingLeft: =3
                         PaddingTop: =3
@@ -6729,7 +6729,7 @@
         Y: =16
         ZIndex: =3
 
-    Form1 As form:
+    formDoInput As form:
         BorderColor: =RGBA(245, 245, 245, 1)
         DataSource: ='Input em massa - temporário'
         Height: =217
@@ -6801,6 +6801,433 @@
                 ItemSpacing: =12
                 NoAttachmentsColor: =RGBA(161, 159, 157, 1)
                 NoAttachmentsText: ="There is nothing attached."
+                OnAddFile: |-
+                    =SubmitForm(formDoInput);
+                    Set(
+                        RetornoJson,
+                        'InputEmMassa-DataGathering'.Run(formDoInput.LastSubmit.ID).returnflow)
+                    ;
+                    ClearCollect(
+                        RetornoJson2,
+                        ForAll(
+                            Table(ParseJSON(RetornoJson).Dados),
+                            {
+                                ID: "",
+                                Port_Pair: Text(ThisRecord.Value.Port_Pair),
+                                Comments_BAT: Text(ThisRecord.Value.Comments_BAT),
+                                'Transshipment_restriction_(Y/N)': Text(ThisRecord.Value.'Transshipment_restriction_(Y/N)'),
+                                'Dangerous_Goods_Y/N': Text(ThisRecord.Value.'Dangerous_Goods_Y/N'),
+                                Market_SPOC: Text(ThisRecord.Value.Market_SPOC),
+                                End_Market_Responsible: Text(ThisRecord.Value.End_Market_Responsible),
+                                BAT_Region: Text(ThisRecord.Value.BAT_Region),
+                                BAT_entity_responsible_for_the_payment_: Text(ThisRecord.Value.BAT_entity_responsible_for_the_payment_),
+                                Service_Structure: Text(ThisRecord.Value.Service_Structure),
+                                POL_Code: Text(ThisRecord.Value.POL_Code),
+                                Origin_Country: Text(ThisRecord.Value.Origin_Country),
+                                'Origin_City_(for_Pre-Carriage_Pickup_Only)': Text(ThisRecord.Value.'Origin_City_(for_Pre-Carriage_Pickup_Only)'),
+                                Pick_Up_Address: Text(ThisRecord.Value.Pick_Up_Address),
+                                POD_Code: Text(ThisRecord.Value.POD_Code),
+                                Destination_Country: Text(ThisRecord.Value.Destination_Country),
+                                'Destination_City_(for_On-Carriage_Delivery_Only)': Text(ThisRecord.Value.'Destination_City_(for_On-Carriage_Delivery_Only)'),
+                                Delivery_Address: Text(ThisRecord.Value.Delivery_Address),
+                                Equipment_Type: Text(ThisRecord.Value.Equipment_Type),
+                                Commodity: Text(ThisRecord.Value.Commodity),
+                                'Total_Volume_(CTR)': Text(ThisRecord.Value.'Total_Volume_(CTR)'),
+                                '_of_CTR_(April)': Text(ThisRecord.Value.'_of_CTR_(April)'),
+                                '_of_CTR_(May)': Text(ThisRecord.Value.'_of_CTR_(May)'),
+                                '_of_CTR_(June)': Text(ThisRecord.Value.'_of_CTR_(June)'),
+                                '_of_CTR_(July)': Text(ThisRecord.Value.'_of_CTR_(July)'),
+                                '_of_CTR_(August)': Text(ThisRecord.Value.'_of_CTR_(August)'),
+                                '_of_CTR_(September)': Text(ThisRecord.Value.'_of_CTR_(September)'),
+                                '_of_CTR_(October)': Text(ThisRecord.Value.'_of_CTR_(October)'),
+                                '_of_CTR_(November)': Text(ThisRecord.Value.'_of_CTR_(November)'),
+                                '_of_CTR_(December)': Text(ThisRecord.Value.'_of_CTR_(December)'),
+                                '_of_CTR_(January)': Text(ThisRecord.Value.'_of_CTR_(January)'),
+                                '_of_CTR_(February)': Text(ThisRecord.Value.'_of_CTR_(February)'),
+                                '_of_CTR_(March)': Text(ThisRecord.Value.'_of_CTR_(March)'),
+                                'Requested_DEM_Time_at_POL_(Days)': Text(ThisRecord.Value.'Requested_DEM_Time_at_POL_(Days)'),
+                                'Requested_DET_Time_at_POL_(Days)': Text(ThisRecord.Value.'Requested_DET_Time_at_POL_(Days)'),
+                                'Requested_DEM_Time_at_POD_(Days)': Text(ThisRecord.Value.'Requested_DEM_Time_at_POD_(Days)'),
+                                'Requested_DET_Time_at_POD_(Days)': Text(ThisRecord.Value.'Requested_DET_Time_at_POD_(Days)')
+                            }
+                        )
+                    );
+                    ForAll(
+                        Sequence(CountRows(RetornoJson2)),
+                        Patch(
+                            RetornoJson2,
+                            Index(
+                                RetornoJson2,
+                                Value
+                            ),
+                            {ID: Value}
+                        )
+                    );
+                    ForAll(
+                        RetornoJson2,
+                        If(
+                            Or(
+                                Trim(ThisRecord.Service_Structure) = "DTD",
+                                Trim(ThisRecord.Service_Structure) = "DTP"
+                            ) And ThisRecord.'Origin_City_(for_Pre-Carriage_Pickup_Only)' = "",
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Origin_City_(for_Pre_Carriage_Pickup_Only)"
+                                }
+                            )
+                        );
+                        If(
+                            Or(
+                                Trim(ThisRecord.Service_Structure) = "DTD",
+                                Trim(ThisRecord.Service_Structure) = "DTP"
+                            ) And ThisRecord.Pick_Up_Address = "",
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Pick_Up_Address"
+                                }
+                            )
+                        );
+                        If(
+                            Or(
+                                Trim(ThisRecord.Service_Structure) = "PTD",
+                                Trim(ThisRecord.Service_Structure) = "DTP"
+                            ) And ThisRecord.'Destination_City_(for_On-Carriage_Delivery_Only)' = "",
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Destination_City_(for_On-Carriage_Delivery_Only)"
+                                }
+                            )
+                        );
+                        If(
+                            Or(
+                                Trim(ThisRecord.Service_Structure) = "PTD",
+                                Trim(ThisRecord.Service_Structure) = "DTP"
+                            ) And ThisRecord.Delivery_Address = "",
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Delivery_Address"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.Service_Structure) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Service_Structure"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.Port_Pair) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Port_Pair"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.Port_Pair) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Port_Pair"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'Dangerous_Goods_Y/N') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Dangerous_Goods_Y/N"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.Market_SPOC) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Market_SPOC"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.End_Market_Responsible) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "End_Market_Responsible"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.BAT_Region) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "BAT_Region"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.BAT_entity_responsible_for_the_payment_) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "BAT_entity_responsible_for_the_payment_"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.POL_Code) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "POL_Code"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.Origin_Country) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Origin_Country"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.POD_Code) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "POD_Code"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.Destination_Country) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Destination_Country"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.Equipment_Type) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Equipment_Type"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.Commodity) = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Commodity"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'Total_Volume_(CTR)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Total_Volume_(CTR)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(April)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(April)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(May)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(May)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(June)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(June)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(July)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(July)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(August)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(August)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(September)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(September)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(October)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(October)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(November)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(November)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(December)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(December)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(January)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(January)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(February)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(February)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'_of_CTR_(March)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "_of_CTR_(March)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'Requested_DEM_Time_at_POL_(Days)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Requested_DEM_Time_at_POL_(Days)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'Requested_DET_Time_at_POL_(Days)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Requested_DET_Time_at_POL_(Days)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'Requested_DEM_Time_at_POD_(Days)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Requested_DEM_Time_at_POD_(Days)"
+                                }
+                            )
+                        );
+                        If(
+                            Trim(ThisRecord.'Requested_DET_Time_at_POD_(Days)') = Blank(),
+                            Collect(
+                                ErrosEncontrados,
+                                {
+                                    Linha: ThisRecord.ID,
+                                    Coluna: "Requested_DET_Time_at_POD_(Days)"
+                                }
+                            )
+                        )
+                    )
                 PaddingBottom: =5
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PaddingRight: =5
