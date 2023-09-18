@@ -191,31 +191,5 @@
     "dependencies": {},
     "dependents": [],
     "id": "bebcaf74-d267-4078-acc4-8b9716d61693"
-  },
-  "d024f581-d829-4795-b196-3d680150fa71": {
-    "appActions": [],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Microsoft Translator",
-      "executionRestrictions": {
-        "apiId": "/providers/microsoft.powerapps/apis/shared_microsofttranslator",
-        "appVer": "3.23091.14",
-        "modifiedOn": "2023-09-18 01:16:00",
-        "policy": "{\"type\":\"unused\"}",
-        "version": 1
-      },
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1623/1.0.1623.3210/microsofttranslator/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_microsofttranslator",
-      "parameterHints": {},
-      "parameterHintsV2": {},
-      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_microsofttranslator/connections/19b1965260c944bbac24522d3053d1f6"
-    },
-    "datasets": {},
-    "dataSources": [
-      "MicrosoftTranslator"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "d024f581-d829-4795-b196-3d680150fa71"
   }
 }
