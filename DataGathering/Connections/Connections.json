@@ -66,9 +66,6 @@
           "Equipment": {
             "tableName": "2479c775-1120-4f73-8980-c403ffc674b0"
           },
-          "Input em massa - temporário": {
-            "tableName": "a3961367-7113-4299-8fe1-110818779efd"
-          },
           "Port": {
             "tableName": "aae5083b-255d-47d0-8699-c6f2852a2bfc"
           },
@@ -89,13 +86,10 @@
       "Equipment",
       "DataDefault",
       "Commodity",
-      "Carrier",
-      "Input em massa - temporário"
+      "Carrier"
     ],
     "dependencies": {},
-    "dependents": [
-      "b9dca143-74be-417f-be29-6091e1eb3f35"
-    ],
+    "dependents": [],
     "id": "363c978b-2903-4c37-a9ee-2f857d5c0016"
   },
   "40679cce-2d70-4942-a074-41d2731b67cc": {

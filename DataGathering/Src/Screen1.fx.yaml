@@ -88,8 +88,7 @@ Screen1 As screen:
         OnSelect: |-
             =Set(Open,false);
             Set(Close,true);
-            Notify("Close with Sucess!",NotificationType.Success);
-            Navigate(MainScreen1,ScreenTransition.Fade)
+            Notify("Close with Sucess!",NotificationType.Success)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)
@@ -144,6 +143,8 @@ Screen1 As screen:
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =RGBA(14, 43, 99, 0.8)
+        OnSelect: |-
+            =Download("https://bat.sharepoint.com/sites/GBIN-DataGathering_Templatesetup/Lists/Data%20GatheringMain/AllItems.aspx")
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)
