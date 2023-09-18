@@ -134,8 +134,9 @@ Screen1 As screen:
         BorderStyle: =BorderStyle.None
         Color: =RGBA(207, 207, 207, 1)
         DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
+        DisabledColor: =RGBA(255, 255, 255, 1)
+        DisabledFill: =RGBA(14, 43, 99, 0.5)
+        DisplayMode: =If(Open, DisplayMode.Disabled,DisplayMode.Edit)
         Fill: =RGBA(14, 43, 99, 1)
         Font: =Font.'Segoe UI'
         FontWeight: =FontWeight.Bold
@@ -143,11 +144,6 @@ Screen1 As screen:
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =RGBA(14, 43, 99, 0.8)
-        OnSelect: |-
-            =Set(Open,false);
-            Set(Close,true);
-            Notify("Close with Sucess!",NotificationType.Success);
-            Navigate(MainScreen1,ScreenTransition.Fade)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)

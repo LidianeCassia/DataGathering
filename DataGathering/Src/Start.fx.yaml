@@ -10,7 +10,7 @@ Start As screen:
         DisabledBorderColor: =RGBA(242, 242, 241, 0)
         DisabledColor: =RGBA(161, 159, 157, 1)
         DisabledFill: =RGBA(242, 242, 241, 0)
-        Duration: =3000
+        Duration: =1500
         Fill: =RGBA(0, 120, 212, 1)
         Font: =Font.'Segoe UI'
         HoverBorderColor: =RGBA(16, 110, 190, 1)

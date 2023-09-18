@@ -448,12 +448,12 @@
                         FocusedBorderThickness: =4
                         Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 0)
-                        HoverColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(14, 43, 99, 0.5)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.Check
                         OnSelect: |-
                             =SubmitForm(Form2);
-                            UpdateContext({ editMode: false})
+                            UpdateContext({ editMode: false, newMode: false });
                         PaddingBottom: =12
                         PaddingLeft: =12
                         PaddingRight: =12
@@ -475,11 +475,11 @@
                         FocusedBorderThickness: =4
                         Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 0)
-                        HoverColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(14, 43, 99, 0.5)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.Cancel
                         OnSelect: |-
-                            =ResetForm([@Form2]); UpdateContext({ editMode: false, newMode: false})
+                            =ResetForm(Form2); UpdateContext({ editMode: false, newMode: false });
                         PaddingBottom: =12
                         PaddingLeft: =12
                         PaddingRight: =12
@@ -501,7 +501,7 @@
                         FocusedBorderThickness: =4
                         Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 0)
-                        HoverColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(14, 43, 99, 0.5)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.Edit
                         OnSelect: |-
@@ -514,7 +514,7 @@
                         PressedColor: =RGBA(16, 110, 190, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         TabIndex: =0
-                        Visible: =And(!editMode, !newMode, !deleteMode, !IsEmpty('Data GatheringMain'))
+                        Visible: =And(!editMode, !newMode, !deleteMode)
                         Width: =50
                         ZIndex: =5
 
@@ -527,7 +527,7 @@
                         FocusedBorderThickness: =4
                         Height: =50
                         HoverBorderColor: =RGBA(0, 0, 0, 0)
-                        HoverColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(14, 43, 99, 0.5)
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.Trash
                         OnSelect: |-
@@ -540,7 +540,7 @@
                         PressedColor: =RGBA(16, 110, 190, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         TabIndex: =0
-                        Visible: =And(!editMode, !newMode, !deleteMode, !IsEmpty('Data GatheringMain'))
+                        Visible: =And(!editMode, !newMode, !deleteMode)
                         Width: =50
                         ZIndex: =6
 
@@ -612,7 +612,7 @@
                                 Color: =RGBA(50, 49, 48, 1)
                                 Default: |-
                                     =
-                                    If(newMode, If(IsBlank('Data GatheringMain'), 1500, Last('Data GatheringMain').Item_Number+1),ThisItem.Item_Number)
+                                    If(newMode, If(IsEmpty('Data GatheringMain'), 1500, Last('Data GatheringMain').Item_Number+1),ThisItem.Item_Number)
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
@@ -842,12 +842,24 @@
                                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                                 BorderThickness: =2
                                 Color: =RGBA(50, 49, 48, 1)
-                                Default: =Left(DataCardValue163.Text,2)&"_"&Mid(DataCardValue163.Text,7,2)
+                                Default: |-
+                                    =If(
+                                        DisplayMode.Edit,
+                                        Left(
+                                            DataCardValue163.Text,
+                                            2
+                                        ) & "_" & Mid(
+                                            DataCardValue163.Text,
+                                            7,
+                                            2
+                                        ),
+                                        Parent.Default
+                                    )
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
                                 DisabledFill: =RGBA(242, 242, 241, 0)
-                                DisplayMode: =Parent.DisplayMode
+                                DisplayMode: =DisplayMode.View
                                 FocusedBorderThickness: =4
                                 Font: =Font.'Segoe UI'
                                 HoverBorderColor: =RGBA(16, 110, 190, 1)
@@ -959,7 +971,7 @@
                                 Color: =RGBA(50, 49, 48, 1)
                                 Default: |-
                                     =
-                                    If(newMode, If(IsBlank('Data GatheringMain'), 2444010400, Last('Data GatheringMain').Offer_ID+1),ThisItem.Offer_ID)
+                                    If(newMode, If(IsEmpty('Data GatheringMain'), 2444010400, Last('Data GatheringMain').Offer_ID+1),ThisItem.Offer_ID)
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
@@ -1076,12 +1088,17 @@
                                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                                 BorderThickness: =2
                                 Color: =RGBA(50, 49, 48, 1)
-                                Default: =DataCardValue163.Text&"_"&ComboBox1_1.Selected.Code &"_"& ComboBox3.Selected.EquipmentType &"_"& ComboBox4.Selected.Commodity
+                                Default: |-
+                                    =If(
+                                        Or(newMode,editMode),
+                                        DataCardValue163.Text & "_" & ComboBox1_1.Selected.Code & "_" & ComboBox3.Selected.EquipmentType & "_" & ComboBox4.Selected.Commodity,
+                                        Parent.Default
+                                    )
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
                                 DisabledFill: =RGBA(242, 242, 241, 0)
-                                DisplayMode: =Parent.DisplayMode
+                                DisplayMode: =DisplayMode.View
                                 FocusedBorderThickness: =4
                                 Font: =Font.'Segoe UI'
                                 HoverBorderColor: =RGBA(16, 110, 190, 1)
@@ -1099,7 +1116,7 @@
                                 Size: =13
                                 Tooltip: =Parent.DisplayName
                                 Width: =Parent.Width - 60
-                                X: =45
+                                X: =30
                                 Y: =47
                                 ZIndex: =2
 
@@ -1560,14 +1577,13 @@
                                 HoverBorderColor: =RGBA(16, 110, 190, 1)
                                 HoverColor: =RGBA(50, 49, 48, 1)
                                 HoverFill: =RGBA(245, 245, 245, 1)
-                                IsSearchable: =false
                                 Items: =Choices([@'Data GatheringMain'].Market_SPOC)
                                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                                 PressedBorderColor: =RGBA(16, 110, 190, 1)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(0, 120, 212, 1)
                                 SearchFields: =["DisplayName"]
-                                SearchItems: =[]
+                                SearchItems: =Choices('Data GatheringMain'.Market_SPOC,DataCardValue292.SearchText)
                                 SelectionFill: =RGBA(0, 120, 212, 1)
                                 SelectMultiple: =false
                                 Size: =13
@@ -1681,14 +1697,13 @@
                                 HoverBorderColor: =RGBA(16, 110, 190, 1)
                                 HoverColor: =RGBA(50, 49, 48, 1)
                                 HoverFill: =RGBA(245, 245, 245, 1)
-                                IsSearchable: =false
                                 Items: =Choices([@'Data GatheringMain'].End_Market_Responsible)
                                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                                 PressedBorderColor: =RGBA(16, 110, 190, 1)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(0, 120, 212, 1)
                                 SearchFields: =["DisplayName"]
-                                SearchItems: =[]
+                                SearchItems: =Choices('Data GatheringMain'.End_Market_Responsible,DataCardValue293.SearchText)
                                 SelectionFill: =RGBA(0, 120, 212, 1)
                                 SelectMultiple: =false
                                 Size: =13
@@ -1862,7 +1877,7 @@
                                 Size: =13
                                 Tooltip: ="Dangerous Goods"
                                 Width: =Parent.Width - 60
-                                X: =40
+                                X: =30
                                 Y: =DataCardKey163.Y + DataCardKey163.Height + 5
                                 ZIndex: =5
 
@@ -1908,7 +1923,18 @@
                                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                                 BorderThickness: =2
                                 Color: =RGBA(50, 49, 48, 1)
-                                Default: =Left(ComboBox2.Selected.POLCode,5)&"_"&Left(ComboBox2_1.Selected.POLCode,5)
+                                Default: |-
+                                    =If(
+                                        DisplayMode.Edit,
+                                        Left(
+                                            ComboBox2.Selected.POLCode,
+                                            5
+                                        ) & "_" & Left(
+                                            ComboBox2_1.Selected.POLCode,
+                                            5
+                                        ),
+                                        Parent.Default
+                                    )
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
@@ -2204,13 +2230,12 @@
                                 HoverColor: =RGBA(50, 49, 48, 1)
                                 HoverFill: =RGBA(245, 245, 245, 1)
                                 InputTextPlaceholder: ="Find items"
-                                IsSearchable: =false
                                 Items: =Distinct(DataDefault,OriginCountry)
                                 PressedBorderColor: =RGBA(16, 110, 190, 1)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(0, 120, 212, 1)
                                 SearchFields: =["Value"]
-                                SearchItems: =[]
+                                SearchItems: =Search(Distinct(DataDefault,OriginCountry),ComboBox1.SearchText,"Value")
                                 SelectionFill: =RGBA(0, 120, 212, 1)
                                 SelectMultiple: =false
                                 Size: =13
@@ -2553,18 +2578,17 @@
                                 HoverColor: =RGBA(50, 49, 48, 1)
                                 HoverFill: =RGBA(245, 245, 245, 1)
                                 InputTextPlaceholder: ="Find items"
-                                IsSearchable: =false
                                 Items: =Distinct(DataDefault,OriginCountry)
                                 PressedBorderColor: =RGBA(16, 110, 190, 1)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(0, 120, 212, 1)
                                 SearchFields: =["Value"]
-                                SearchItems: =[]
+                                SearchItems: =Search(Distinct(DataDefault,OriginCountry),ComboBox1_2.SearchText,"Value")
                                 SelectionFill: =RGBA(0, 120, 212, 1)
                                 SelectMultiple: =false
                                 Size: =13
                                 Width: =Parent.Width - 60
-                                X: =40
+                                X: =30
                                 Y: =DataCardKey169.Y + DataCardKey169.Height + 5
                                 ZIndex: =5
 
@@ -2900,14 +2924,15 @@
                                 HoverBorderColor: =RGBA(16, 110, 190, 1)
                                 HoverColor: =RGBA(50, 49, 48, 1)
                                 HoverFill: =RGBA(245, 245, 245, 1)
-                                IsSearchable: =false
+                                InputTextPlaceholder: ="Find itens"
                                 Items: =DataDefault
                                 PressedBorderColor: =RGBA(16, 110, 190, 1)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(0, 120, 212, 1)
                                 SearchFields: =["POLCode"]
-                                SearchItems: =[]
+                                SearchItems: =Search(DataDefault,ComboBox2.SearchText,"POLCode")
                                 SelectionFill: =RGBA(0, 120, 212, 1)
+                                SelectMultiple: =false
                                 Size: =13
                                 Tooltip: ="""POL Code"""
                                 Width: =Parent.Width - 60
@@ -3017,14 +3042,15 @@
                                 HoverBorderColor: =RGBA(16, 110, 190, 1)
                                 HoverColor: =RGBA(50, 49, 48, 1)
                                 HoverFill: =RGBA(245, 245, 245, 1)
-                                IsSearchable: =false
+                                InputTextPlaceholder: ="Find itens"
                                 Items: =DataDefault
                                 PressedBorderColor: =RGBA(16, 110, 190, 1)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(0, 120, 212, 1)
                                 SearchFields: =["POLCode"]
-                                SearchItems: =[]
+                                SearchItems: =Search(DataDefault,ComboBox2_1.SearchText,"POLCode")
                                 SelectionFill: =RGBA(0, 120, 212, 1)
+                                SelectMultiple: =false
                                 Size: =13
                                 Tooltip: ="""POL Code"""
                                 Width: =Parent.Width - 60
@@ -3366,14 +3392,15 @@
                                 HoverBorderColor: =RGBA(16, 110, 190, 1)
                                 HoverColor: =RGBA(50, 49, 48, 1)
                                 HoverFill: =RGBA(245, 245, 245, 1)
-                                IsSearchable: =false
+                                InputTextPlaceholder: ="Find itens"
                                 Items: =Commodity
                                 PressedBorderColor: =RGBA(16, 110, 190, 1)
                                 PressedColor: =RGBA(255, 255, 255, 1)
                                 PressedFill: =RGBA(0, 120, 212, 1)
                                 SearchFields: =["field_1"]
-                                SearchItems: =[]
+                                SearchItems: =Search(Commodity,ComboBox4.SearchText,"field_1")
                                 SelectionFill: =RGBA(0, 120, 212, 1)
+                                SelectMultiple: =false
                                 Size: =13
                                 Width: =Parent.Width - 60
                                 X: =30
@@ -7037,12 +7064,12 @@
             Fill: =RGBA(14, 43, 99, 1)
             FocusedBorderThickness: =4
             Font: =Font.'Segoe UI'
-            Height: =467
+            Height: =381
             Size: =13
             Text: =""
             Width: =790
-            X: =288
-            Y: =168
+            X: =292
+            Y: =210
             ZIndex: =1
 
         Label5 As label:
@@ -7057,12 +7084,12 @@
             FocusedBorderThickness: =4
             Font: =Font.'Segoe UI'
             FontWeight: =FontWeight.Semibold
-            Height: =38
+            Height: =36
             Size: =16
             Text: ="   Import"
-            Width: =782
-            X: =292
-            Y: =172
+            Width: =768
+            X: =305
+            Y: =228
             ZIndex: =2
 
         Icon4 As icon.Medical:
@@ -7072,7 +7099,7 @@
             DisabledColor: =RGBA(225, 223, 221, 1)
             DisabledFill: =RGBA(0, 0, 0, 0)
             FocusedBorderThickness: =4
-            Height: =35
+            Height: =36
             HoverBorderColor: =RGBA(0, 0, 0, 0)
             HoverColor: =RGBA(16, 110, 190, 1)
             HoverFill: =RGBA(0, 0, 0, 0)
@@ -7084,9 +7111,9 @@
             PressedBorderColor: =RGBA(0, 0, 0, 0)
             PressedColor: =RGBA(16, 110, 190, 1)
             PressedFill: =RGBA(0, 0, 0, 0)
-            Width: =35
-            X: =1040
-            Y: =173
+            Width: =24
+            X: =1042
+            Y: =228
             ZIndex: =3
 
         Label6 As label:
@@ -7102,8 +7129,8 @@
             Size: =13
             Text: ="Texto"
             Width: =1
-            X: =1035
-            Y: =173
+            X: =1033
+            Y: =228
             ZIndex: =4
 
         Import1 As import:
@@ -7122,15 +7149,11 @@
             PressedBorderColor: =RGBA(222, 236, 249, 1)
             PressedColor: =RGBA(255, 255, 255, 1)
             PressedFill: =RGBA(16, 110, 190, 1)
-            RadiusBottomLeft: =0
-            RadiusBottomRight: =0
-            RadiusTopLeft: =0
-            RadiusTopRight: =0
             Size: =13
             Text: ="Import Excel"
             Width: =293
-            X: =520
-            Y: =344
+            X: =536
+            Y: =382
             ZIndex: =5
 
     Icon2 As icon.History:
