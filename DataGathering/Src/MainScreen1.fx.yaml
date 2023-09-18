@@ -452,7 +452,9 @@
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.Check
                         OnSelect: |-
-                            =SubmitForm(Form2);
+                            =//If(Trim(DataCardValue178)
+                            
+                            SubmitForm(Form2);
                             UpdateContext({ editMode: false, newMode: false });
                         PaddingBottom: =12
                         PaddingLeft: =12
@@ -1771,7 +1773,7 @@
                             Height: =50
                             MaxLength: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.MaxLength, "field_16")
                             Required: =false
-                            Update: =
+                            Update: =DataCardValue158_1.Selected.BATRegion
                             Width: =457
                             X: =0
                             Y: =5
@@ -1876,10 +1878,27 @@
                                 SelectMultiple: =false
                                 Size: =13
                                 Tooltip: ="Dangerous Goods"
+                                Visible: =Or(editMode,newMode)
                                 Width: =Parent.Width - 60
                                 X: =30
                                 Y: =DataCardKey163.Y + DataCardKey163.Height + 5
                                 ZIndex: =5
+
+                            Label9 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Size: =13
+                                Text: =ThisItem.BAT_Region
+                                Visible: =And(!editMode,!newMode)
+                                X: =30
+                                Y: =40
+                                ZIndex: =7
 
                         Port_Pair_DataCard2 As typedDataCard.textualEditCard:
                             BorderColor: =RGBA(245, 245, 245, 1)
@@ -2239,10 +2258,27 @@
                                 SelectionFill: =RGBA(0, 120, 212, 1)
                                 SelectMultiple: =false
                                 Size: =13
+                                Visible: =Or(editMode,newMode)
                                 Width: =Parent.Width - 60
                                 X: =30
-                                Y: =50
+                                Y: =DataCardKey169.Y + DataCardKey169.Height + 5
                                 ZIndex: =5
+
+                            Label8 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Size: =13
+                                Text: =ThisItem.Origin_Country
+                                Visible: =And(!editMode,!newMode)
+                                X: =30
+                                Y: =50
+                                ZIndex: =6
 
                         "'Origin_City_(for_Pre-Carriage_Pickup_Only)_DataCard2' As typedDataCard.textualEditCard":
                             BorderColor: =RGBA(245, 245, 245, 1)
@@ -2587,10 +2623,28 @@
                                 SelectionFill: =RGBA(0, 120, 212, 1)
                                 SelectMultiple: =false
                                 Size: =13
+                                Visible: =Or(newMode,editMode)
                                 Width: =Parent.Width - 60
                                 X: =30
                                 Y: =DataCardKey169.Y + DataCardKey169.Height + 5
                                 ZIndex: =5
+
+                            Label10 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Size: =13
+                                Text: =ThisItem.Destination_Country
+                                Visible: =Or(!newMode,!editMode)
+                                Width: =397
+                                X: =30
+                                Y: =47
+                                ZIndex: =6
 
                         "'Destination_City_(for_On-Carriage_Delivery_Only)_DataCard2' As typedDataCard.textualEditCard":
                             BorderColor: =RGBA(245, 245, 245, 1)
@@ -3290,6 +3344,21 @@
                                 Y: =DataCardKey180.Y + DataCardKey180.Height + 5
                                 ZIndex: =5
 
+                            Label11 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Size: =13
+                                Text: =ThisItem.Equipment_Type
+                                X: =182
+                                Y: =6
+                                ZIndex: =6
+
                         Commodity_DataCard2 As typedDataCard.textualEditCard:
                             BorderColor: =RGBA(245, 245, 245, 1)
                             BorderStyle: =BorderStyle.Solid
@@ -3474,31 +3543,6 @@
                                 X: =30
                                 Y: =DataCardKey183.Y + DataCardKey183.Height + 5
                                 ZIndex: =2
-
-                            ErrorMessage183 As label:
-                                AutoHeight: =true
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(168, 0, 0, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(168, 0, 0, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =10
-                                Live: =Live.Assertive
-                                PaddingBottom: =0
-                                PaddingLeft: =0
-                                PaddingRight: =0
-                                PaddingTop: =0
-                                Size: =13
-                                Text: =Parent.Error
-                                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                                Width: =Parent.Width - 60
-                                X: =30
-                                Y: =DataCardValue178.Y + DataCardValue178.Height
-                                ZIndex: =3
 
                             StarVisible183 As label:
                                 Align: =Align.Center
