@@ -35,34 +35,6 @@
     "dependents": [],
     "id": "339b2c39-291d-4bcf-8ae6-2cf98c8203ac"
   },
-  "33ffd2d5-9df7-473e-b5df-fca9e9184f2c": {
-    "appActions": [],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Fluxos lógicos",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "b4520018-58ef-494e-9d91-63a1287f8865"
-        }
-      },
-      "parameterHintsV2": {
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "b4520018-58ef-494e-9d91-63a1287f8865"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "InputEmMassa"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "33ffd2d5-9df7-473e-b5df-fca9e9184f2c"
-  },
   "363c978b-2903-4c37-a9ee-2f857d5c0016": {
     "appActions": [
       "providers/PowerPlatform.Governance/Operations/Read",
@@ -120,6 +92,34 @@
     "dependents": [],
     "id": "363c978b-2903-4c37-a9ee-2f857d5c0016"
   },
+  "40679cce-2d70-4942-a074-41d2731b67cc": {
+    "connectionRef": {
+      "displayName": "Excel Online (Business)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/excelonlinebusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "b9dca143-74be-417f-be29-6091e1eb3f35"
+    ],
+    "id": "40679cce-2d70-4942-a074-41d2731b67cc"
+  },
+  "64d671e2-2b81-4864-a26a-04a357b44b29": {
+    "connectionRef": {
+      "displayName": "OneDrive for Business",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1647/1.0.1647.3361/onedriveforbusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness"
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "b9dca143-74be-417f-be29-6091e1eb3f35"
+    ],
+    "id": "64d671e2-2b81-4864-a26a-04a357b44b29"
+  },
   "6f02847e-0365-4238-9c52-4378b8cc057a": {
     "appActions": [],
     "connectionRef": {
@@ -173,6 +173,54 @@
     "dependencies": {},
     "dependents": [],
     "id": "70675cc1-00d1-4cc9-86ef-e6321b176e79"
+  },
+  "b9dca143-74be-417f-be29-6091e1eb3f35": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "363c978b-2903-4c37-a9ee-2f857d5c0016": {
+          "value": "shared_sharepointonline"
+        },
+        "40679cce-2d70-4942-a074-41d2731b67cc": {
+          "value": "shared_excelonlinebusiness"
+        },
+        "64d671e2-2b81-4864-a26a-04a357b44b29": {
+          "value": "shared_onedriveforbusiness"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "61be3cae-c568-487f-8c35-b630c4197e22"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_excelonlinebusiness": {
+          "value": "40679cce-2d70-4942-a074-41d2731b67cc"
+        },
+        "shared_onedriveforbusiness": {
+          "value": "64d671e2-2b81-4864-a26a-04a357b44b29"
+        },
+        "shared_sharepointonline": {
+          "value": "363c978b-2903-4c37-a9ee-2f857d5c0016"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "61be3cae-c568-487f-8c35-b630c4197e22"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "InputEmMassa-DataGathering"
+    ],
+    "dependencies": {
+      "shared_excelonlinebusiness": "40679cce-2d70-4942-a074-41d2731b67cc",
+      "shared_onedriveforbusiness": "64d671e2-2b81-4864-a26a-04a357b44b29",
+      "shared_sharepointonline": "363c978b-2903-4c37-a9ee-2f857d5c0016"
+    },
+    "dependents": [],
+    "id": "b9dca143-74be-417f-be29-6091e1eb3f35"
   },
   "bebcaf74-d267-4078-acc4-8b9716d61693": {
     "appActions": [],

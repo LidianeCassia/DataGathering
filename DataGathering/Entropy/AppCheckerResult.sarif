@@ -64,10 +64,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 10,
+                  "charLength": 9,
                   "charOffset": 51,
                   "snippet": {
-                    "text": "\"field_19\""
+                    "text": "\"field_2\""
                   }
                 }
               },
@@ -876,19 +876,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown2.AccessibleLabel"
+                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.RightContainer1.MainContainer1.Form2.Item_Number_DataCard2.DataCardValue150.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown2.AccessibleLabel",
+                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.RightContainer1.MainContainer1.Form2.Item_Number_DataCard2.DataCardValue150.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "MainScreen1",
-                "type": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown2"
+                "type": "MainScreen1.ScreenContainer1.BodyContainer1.RightContainer1.MainContainer1.Form2.Item_Number_DataCard2.DataCardValue150"
               }
             }
           ],
@@ -966,19 +966,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown1.AccessibleLabel"
+                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.RightContainer1.MainContainer1.Form2.Offer_ID_DataCard2.DataCardValue153.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown1.AccessibleLabel",
+                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.RightContainer1.MainContainer1.Form2.Offer_ID_DataCard2.DataCardValue153.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "MainScreen1",
-                "type": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown1"
+                "type": "MainScreen1.ScreenContainer1.BodyContainer1.RightContainer1.MainContainer1.Form2.Offer_ID_DataCard2.DataCardValue153"
               }
             }
           ],
@@ -2765,36 +2765,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "MainScreen1",
-                "type": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.Dropdown3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.1"
                 }
               ],
@@ -4044,7 +4014,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Cada controle consome recursos e, quando uma tela tem muitos controles, o aplicativo pode ficar lento ou parar de responder. A complexidade estimada de \"MainScreen1\" é 349, o que excede o limite máximo recomendado (300)."
+                "whyFix": "Cada controle consome recursos e, quando uma tela tem muitos controles, o aplicativo pode ficar lento ou parar de responder. A complexidade estimada de \"MainScreen1\" é 355, o que excede o limite máximo recomendado (300)."
               }
             },
             {
