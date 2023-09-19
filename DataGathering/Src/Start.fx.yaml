@@ -78,7 +78,7 @@ Start As screen:
         PressedFill: =RGBA(0, 0, 0, 0)
         Width: =99
         X: =1251
-        Y: =657
+        Y: =663
         ZIndex: =4
 
     Cabecalho_4 As Cabecalho:

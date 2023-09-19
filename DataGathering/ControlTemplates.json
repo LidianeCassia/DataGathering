@@ -55,6 +55,21 @@
     "OverridableProperties": {},
     "Version": "2.4.0"
   },
+  "Controle giratório": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/powercontrol/PowerApps_CoreControls_Spinner",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": true,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": false,
+    "LastModifiedTimestamp": "0",
+    "Name": "PowerApps_CoreControls_Spinner",
+    "OverridableProperties": {},
+    "TemplateDisplayName": "Controle giratório",
+    "Version": "1.0.18"
+  },
   "dataTable": {
     "CustomGroupControlTemplateName": "",
     "FirstParty": true,
@@ -111,6 +126,20 @@
     "OverridableProperties": {},
     "TemplateDisplayName": "Entrada de texto",
     "Version": "0.0.15"
+  },
+  "export": {
+    "CustomGroupControlTemplateName": "",
+    "FirstParty": true,
+    "Id": "http://microsoft.com/appmagic/export",
+    "IsComponentTemplate": false,
+    "IsCustomGroupControlTemplate": false,
+    "IsPcfControl": false,
+    "IsPremiumPcfControl": false,
+    "IsWidgetTemplate": true,
+    "LastModifiedTimestamp": "0",
+    "Name": "export",
+    "OverridableProperties": {},
+    "Version": "2.1.0"
   },
   "form": {
     "CustomGroupControlTemplateName": "",

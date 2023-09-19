@@ -315,7 +315,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "RGBA(207, 207, 207, 1)",
+            "InvariantScript": "RGBA(255, 255, 255, 1)",
             "Property": "Color",
             "RuleProviderType": "Unknown"
           },
@@ -423,7 +423,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "122",
+            "InvariantScript": "0",
             "Property": "X",
             "RuleProviderType": "Unknown"
           },
@@ -435,7 +435,7 @@
           },
           {
             "Category": "Design",
-            "InvariantScript": "423",
+            "InvariantScript": "293",
             "Property": "Width",
             "RuleProviderType": "Unknown"
           },
@@ -2196,7 +2196,7 @@
       "Y",
       "ZIndex"
     ],
-    "LastModifiedTimestamp": "638306862691710976",
+    "LastModifiedTimestamp": "638307239293202754",
     "Name": "Cabecalho",
     "Rules": [
       {
@@ -2255,7 +2255,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638306862691710976",
+  "LastModifiedTimestamp": "638307239293202754",
   "Name": "1955f112aad94acf859b4aa9a843015a",
   "OverridableProperties": {},
   "Version": "638296046422765462"
