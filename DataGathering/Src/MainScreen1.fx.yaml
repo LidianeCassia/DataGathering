@@ -254,12 +254,14 @@
                         =//Search([@'Data GatheringMain']; SearchInput1.Text; "field_19")
                         Filter(
                             'Data GatheringMain',
+                            And(
                             Or(
                                 IsBlank(ComboBox5.SelectedItems),
                                 IsEmpty(ComboBox5.SelectedItems),
                         
                         
-                                Market_SPOC.DisplayName in ComboBox5.Selected.Market_SPOC.DisplayName))
+                                Market_SPOC.DisplayName = Last(FirstN(ComboBox5.SelectedItems,1)).Market_SPOC.DisplayName)),
+                                StartsWith(Port_Pair,SearchInput1.Text))
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =287
                     LayoutMinWidth: =320
