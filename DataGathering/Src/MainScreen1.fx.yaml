@@ -577,11 +577,7 @@
                                     IsBlank(DataCardValue3.Selected),
                                     IsBlank(DataCardValue5.Selected),
                                     IsBlank(DataCardValue7.Selected),
-                                    IsBlank(DataCardValue165.Text),
-                                    IsBlank(DataCardValue166.Text),
                                     IsBlank(DataCardValue9.Selected),
-                                    IsBlank(DataCardValue169.Text),
-                                    IsBlank(DataCardValue170.Text),
                                     IsBlank(DataCardValue13.Selected),
                                     IsBlank(DataCardValue11.Selected),
                                     IsBlank(DataCardValue15.Selected),
@@ -603,11 +599,26 @@
                                     IsBlank(DataCardValue229.Text),
                                     IsBlank(DataCardValue214.Text),
                                     IsBlank(DataCardValue231.Text)
-                                    
                                 ),
                                 Notify(
                                     "Enter the required data!",
                                     NotificationType.Error
+                                ),
+                                If(
+                                    Or(
+                                        DataCardValue5.Selected.Code = "PTD",
+                                        DataCardValue5.Selected.Code = "DTD"
+                                    ),If(
+                                    Or(
+                                        IsBlank(DataCardValue165.Text),
+                                        IsBlank(DataCardValue166.Text),
+                                        IsBlank(DataCardValue169.Text),
+                                        IsBlank(DataCardValue170.Text)
+                                    ),
+                                    Notify(
+                                        "Enter the required data!",
+                                        NotificationType.Error
+                                    ))
                                 ),
                                 SubmitForm(Form2);
                                 UpdateContext(
@@ -1536,7 +1547,7 @@
                                 Color: =RGBA(50, 49, 48, 1)
                                 Default: |-
                                     =//Filter(Port;'PortPair ' = DataCardValue163.Text;IDPort)
-                                    LookUp(Port,'PortPair '= DataCardValue163.Text,IDPort) & "_" & DataCardValue5.Selected.Code &"_"& DataCardValue15.Selected.EquipmentType &"_"& DataCardValue17.Selected.Commodity
+                                    LookUp(Port,'PortPair '= DataCardValue163.Text).IDPort & "_" & DataCardValue5.Selected.Code &"_"& DataCardValue15.Selected.EquipmentType &"_"& DataCardValue17.Selected.Commodity
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
@@ -2098,7 +2109,7 @@
                                 Color: =RGBA(50, 49, 48, 1)
                                 Default: |-
                                     =If(
-                                        DisplayMode.Edit,
+                                        Or(editMode,newMode),
                                         Left(
                                             DataCardValue13.Selected.POLCode, //POL
                                             5
@@ -5985,4 +5996,19 @@
             X: =0
             Y: =0
             ZIndex: =12
+
+    Label7 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Size: =13
+        Text: =DataCardValue5.Selected.Code
+        X: =366
+        Y: =16
+        ZIndex: =5
 
