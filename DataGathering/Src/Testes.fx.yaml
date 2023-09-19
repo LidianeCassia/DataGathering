@@ -1,5 +1,5 @@
 Testes As screen:
-    Fill: =RGBA(207, 207, 207, 1)
+    Fill: =RGBA(236, 236, 235, 1)
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
 
     Cabecalho_5 As Cabecalho:
@@ -641,7 +641,7 @@ Testes As screen:
             LayoutHeight: =Parent.Height
             Order: =1
             Text: =ThisItem.Obs
-            Width: =136
+            Width: =148
             X: =0
             Y: =0
             ZIndex: =37
