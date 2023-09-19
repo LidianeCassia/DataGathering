@@ -188,6 +188,7 @@
                         HoverFill: =RGBA(0, 0, 0, 0)
                         LayoutMinWidth: =0
                         PressedFill: =RGBA(0, 0, 0, 0)
+                        Reset: =CtxClearFilter
                         Tooltip: ="Search for Port Pair"
                         ZIndex: =1
 
@@ -234,6 +235,7 @@
                         PressedBorderColor: =RGBA(16, 110, 190, 1)
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(0, 120, 212, 1)
+                        Reset: =CtxClearFilter
                         SearchFields: =["field_135"]
                         SearchItems: =Search('Data GatheringMain',ComboBox5.SearchText,"field_135")
                         SelectionFill: =RGBA(0, 120, 212, 1)
@@ -5955,7 +5957,7 @@
 
     Icon5 As icon.Add:
         BorderColor: =RGBA(0, 0, 0, 0)
-        Color: =RGBA(0, 120, 212, 1)
+        Color: =RGBA(14, 43, 99, 1)
         DisabledBorderColor: =RGBA(245, 245, 245, 1)
         DisabledColor: =RGBA(225, 223, 221, 1)
         DisabledFill: =RGBA(0, 0, 0, 0)
@@ -5965,9 +5967,13 @@
         HoverColor: =RGBA(16, 110, 190, 1)
         HoverFill: =RGBA(0, 0, 0, 0)
         Icon: =Icon.Filter
+        OnSelect: |-
+            =UpdateContext({CtxClearFilter:true});
+            UpdateContext({CtxClearFilter:false})
         PressedBorderColor: =RGBA(0, 0, 0, 0)
         PressedColor: =RGBA(16, 110, 190, 1)
         PressedFill: =RGBA(0, 0, 0, 0)
+        Tooltip: ="Clear Filter"
         Width: =30
         X: =351
         Y: =114
@@ -5975,7 +5981,7 @@
 
     Icon5_1 As icon.Add:
         BorderColor: =RGBA(0, 0, 0, 0)
-        Color: =RGBA(0, 120, 212, 1)
+        Color: =RGBA(14, 43, 99, 1)
         DisabledBorderColor: =RGBA(245, 245, 245, 1)
         DisabledColor: =RGBA(225, 223, 221, 1)
         DisabledFill: =RGBA(0, 0, 0, 0)
@@ -5985,6 +5991,9 @@
         HoverColor: =RGBA(16, 110, 190, 1)
         HoverFill: =RGBA(0, 0, 0, 0)
         Icon: =Icon.Cancel
+        OnSelect: |-
+            =UpdateContext({CtxClearFilter:true});
+            UpdateContext({CtxClearFilter:false})
         PressedBorderColor: =RGBA(0, 0, 0, 0)
         PressedColor: =RGBA(16, 110, 190, 1)
         PressedFill: =RGBA(0, 0, 0, 0)
