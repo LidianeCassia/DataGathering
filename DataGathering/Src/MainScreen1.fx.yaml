@@ -1534,7 +1534,9 @@
                                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                                 BorderThickness: =2
                                 Color: =RGBA(50, 49, 48, 1)
-                                Default: =Parent.Default
+                                Default: |-
+                                    =//Filter(Port;'PortPair ' = DataCardValue163.Text;IDPort)
+                                    LookUp(Port,'PortPair '= DataCardValue163.Text,IDPort) & "_" & DataCardValue5.Selected.Code &"_"& DataCardValue15.Selected.EquipmentType &"_"& DataCardValue17.Selected.Commodity
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
@@ -2060,11 +2062,11 @@
                             DisplayMode: =Parent.DisplayMode
                             DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_19")
                             Fill: =RGBA(0, 0, 0, 0)
-                            Height: =50
+                            Height: =103
                             MaxLength: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.MaxLength, "field_19")
                             Required: =false
                             Update: =DataCardValue163.Text
-                            Width: =457
+                            Width: =458
                             X: =0
                             Y: =0
                             ZIndex: =2
