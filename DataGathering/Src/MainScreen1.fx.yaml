@@ -285,14 +285,18 @@
                             And(
                                 Or(
                                     IsBlank(ComboBox5.SelectedItems),
+                                    IsBlank(ComboBox1.SelectedItems),
                                     IsEmpty(ComboBox5.SelectedItems),
+                                    IsEmpty(ComboBox1.SelectedItems),
                                     Market_SPOC.DisplayName = Last(FirstN(ComboBox5.SelectedItems,1)
-                                    ).Market_SPOC.DisplayName
+                                    ).Market_SPOC.DisplayName,
+                                    Origin_Country.Value = Index(ComboBox1.SelectedItems,1).Value
                                 ),
                             StartsWith(
                                 Port_Pair,
                                 SearchInput1.Text
-                            )//;
+                            )
+                                    
                             //Origin_Country.Value = Last(FirstN(ComboBox1.SelectedItems;1).Value)
                         )
                         )
