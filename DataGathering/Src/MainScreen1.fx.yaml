@@ -207,67 +207,6 @@
                     LayoutMode: =LayoutMode.Auto
                     ZIndex: =3
 
-                    Dropdown1 As dropdown:
-                        BorderColor: =RGBA(245, 245, 245, 1)
-                        ChevronBackground: =RGBA(245, 245, 245, 1)
-                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
-                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
-                        ChevronFill: =RGBA(50, 49, 48, 1)
-                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
-                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
-                        Color: =RGBA(50, 49, 48, 1)
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                        DisabledColor: =RGBA(161, 159, 157, 1)
-                        DisabledFill: =RGBA(242, 242, 241, 0)
-                        Fill: =RGBA(245, 245, 245, 1)
-                        Font: =Font.'Segoe UI'
-                        HoverBorderColor: =RGBA(16, 110, 190, 1)
-                        HoverColor: =RGBA(50, 49, 48, 1)
-                        HoverFill: =RGBA(245, 245, 245, 1)
-                        PaddingBottom: =5
-                        PaddingLeft: =12
-                        PaddingRight: =5
-                        PaddingTop: =5
-                        PressedBorderColor: =RGBA(16, 110, 190, 1)
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 120, 212, 1)
-                        SelectionColor: =RGBA(50, 49, 48, 1)
-                        SelectionFill: =RGBA(0, 120, 212, 1)
-                        Size: =13
-                        Width: =100
-                        ZIndex: =1
-
-                    Dropdown2 As dropdown:
-                        BorderColor: =RGBA(245, 245, 245, 1)
-                        ChevronBackground: =RGBA(245, 245, 245, 1)
-                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
-                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
-                        ChevronFill: =RGBA(50, 49, 48, 1)
-                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
-                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
-                        Color: =RGBA(50, 49, 48, 1)
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                        DisabledColor: =RGBA(161, 159, 157, 1)
-                        DisabledFill: =RGBA(242, 242, 241, 0)
-                        Fill: =RGBA(245, 245, 245, 1)
-                        Font: =Font.'Segoe UI'
-                        HoverBorderColor: =RGBA(16, 110, 190, 1)
-                        HoverColor: =RGBA(50, 49, 48, 1)
-                        HoverFill: =RGBA(245, 245, 245, 1)
-                        Items: =DropDownSample
-                        PaddingBottom: =5
-                        PaddingLeft: =12
-                        PaddingRight: =5
-                        PaddingTop: =5
-                        PressedBorderColor: =RGBA(16, 110, 190, 1)
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 120, 212, 1)
-                        SelectionColor: =RGBA(50, 49, 48, 1)
-                        SelectionFill: =RGBA(0, 120, 212, 1)
-                        Size: =13
-                        Width: =100
-                        ZIndex: =2
-
                     ComboBox5 As combobox:
                         BorderColor: =RGBA(245, 245, 245, 1)
                         ChevronBackground: =RGBA(245, 245, 245, 1)
@@ -280,19 +219,21 @@
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         DisabledColor: =RGBA(161, 159, 157, 1)
                         DisabledFill: =RGBA(242, 242, 241, 0)
-                        DisplayFields: =["field_136"]
+                        DisplayFields: =["field_135"]
                         Fill: =RGBA(245, 245, 245, 1)
                         Font: =Font.'Segoe UI'
                         HoverBorderColor: =RGBA(16, 110, 190, 1)
                         HoverColor: =RGBA(50, 49, 48, 1)
                         HoverFill: =RGBA(245, 245, 245, 1)
-                        IsSearchable: =false
+                        InputTextPlaceholder: ="Find itens"
+                        Items: ='Data GatheringMain'
                         PressedBorderColor: =RGBA(16, 110, 190, 1)
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(0, 120, 212, 1)
-                        SearchFields: =["field_136"]
-                        SearchItems: =[]
+                        SearchFields: =["field_135"]
+                        SearchItems: =Search('Data GatheringMain',ComboBox5.SearchText,"field_135")
                         SelectionFill: =RGBA(0, 120, 212, 1)
+                        SelectMultiple: =false
                         Size: =13
                         Width: =100
                         ZIndex: =4
@@ -303,7 +244,16 @@
                     Default: =CurrentItem
                     DelayItemLoading: =true
                     Fill: =RGBA(250, 250, 250, 1)
-                    Items: =Search([@'Data GatheringMain'], SearchInput1.Text, "field_19")
+                    Items: |-
+                        =//Search([@'Data GatheringMain']; SearchInput1.Text; "field_19")
+                        Filter(
+                            'Data GatheringMain',
+                            Or(
+                                IsBlank(ComboBox5.SelectedItems),
+                                IsEmpty(ComboBox5.SelectedItems),
+                        
+                        
+                                Market_SPOC.DisplayName in ComboBox5.Selected.Market_SPOC.DisplayName))
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =287
                     LayoutMinWidth: =320
