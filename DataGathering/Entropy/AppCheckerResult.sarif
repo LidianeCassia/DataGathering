@@ -104,10 +104,10 @@
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 19,
+                  "charLength": 10,
                   "charOffset": 49,
                   "snippet": {
-                    "text": "\"ComplianceAssetId\""
+                    "text": "\"field_20\""
                   }
                 }
               },

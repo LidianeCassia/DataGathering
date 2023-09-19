@@ -241,7 +241,7 @@
                         SelectionFill: =RGBA(0, 120, 212, 1)
                         SelectMultiple: =false
                         Size: =13
-                        Width: =100
+                        Width: =150
                         ZIndex: =4
 
                     ComboBox1 As combobox:
@@ -256,7 +256,7 @@
                         DisabledBorderColor: =RGBA(0, 0, 0, 0)
                         DisabledColor: =RGBA(161, 159, 157, 1)
                         DisabledFill: =RGBA(242, 242, 241, 0)
-                        DisplayFields: =["ComplianceAssetId"]
+                        DisplayFields: =["field_20"]
                         Fill: =RGBA(245, 245, 245, 1)
                         Font: =Font.'Segoe UI'
                         HoverBorderColor: =RGBA(16, 110, 190, 1)
@@ -266,10 +266,11 @@
                         PressedBorderColor: =RGBA(16, 110, 190, 1)
                         PressedColor: =RGBA(255, 255, 255, 1)
                         PressedFill: =RGBA(0, 120, 212, 1)
-                        SearchFields: =["ComplianceAssetId"]
-                        SearchItems: =Search('Data GatheringMain',ComboBox1.SearchText,"ComplianceAssetId")
+                        SearchFields: =["field_20"]
+                        SearchItems: =Search('Data GatheringMain',ComboBox1.SearchText,"field_20")
                         SelectionFill: =RGBA(0, 120, 212, 1)
                         Size: =13
+                        Width: =150
                         ZIndex: =5
 
                 "RecordsGallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
@@ -285,18 +286,15 @@
                                 Or(
                                     IsBlank(ComboBox5.SelectedItems),
                                     IsEmpty(ComboBox5.SelectedItems),
-                                    Market_SPOC.DisplayName = Last(
-                                        FirstN(
-                                            ComboBox5.SelectedItems,
-                                            1
-                                        )
+                                    Market_SPOC.DisplayName = Last(FirstN(ComboBox5.SelectedItems,1)
                                     ).Market_SPOC.DisplayName
-                                )
-                            ),
+                                ),
                             StartsWith(
                                 Port_Pair,
                                 SearchInput1.Text
-                            )
+                            )//;
+                            //Origin_Country.Value = Last(FirstN(ComboBox1.SelectedItems;1).Value)
+                        )
                         )
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =287
