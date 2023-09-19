@@ -94,8 +94,9 @@
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.Add
                         OnSelect: |-
-                            =NewForm(Form2); UpdateContext({ newMode: true });
-                            Set(CtxErro,false)
+                            =ResetForm(Form2);
+                            NewForm(Form2); 
+                            UpdateContext({ newMode: true })
                         PaddingBottom: =10
                         PaddingLeft: =10
                         PaddingRight: =10
@@ -526,7 +527,7 @@
                         TabIndex: =0
                         Visible: =If(MainScreen1.Size = ScreenSize.Small, And(!editMode, !newMode, !deleteMode), false)
                         Width: =50
-                        ZIndex: =1
+                        ZIndex: =2
 
                     SelectedRecordTitle1 As label:
                         AlignInContainer: =AlignInContainer.Stretch
@@ -542,8 +543,9 @@
                         FontWeight: =FontWeight.Semibold
                         PaddingLeft: =30
                         Size: =13
-                        Text: =RecordsGallery1.Selected.Port_Pair
-                        ZIndex: =2
+                        Text: |-
+                            =If(newMode, "Inserting New Data","Port Pair : "&RecordsGallery1.Selected.Port_Pair)
+                        ZIndex: =3
 
                     SubmitFormButton1 As icon:
                         BorderColor: =RGBA(0, 0, 0, 0)
@@ -568,7 +570,15 @@
                                     NotificationType.Error
                                 );;
                                 DataCardValue157.BorderColor = Color.Red;*/
-                            If(
+                                If(Or(DataCardValue5.Selected.Code = "DTP",DataCardValue5.Selected.Code = "DTD"),
+                                           If( Or(IsBlank(DataCardValue165.Text),
+                                            IsBlank(DataCardValue166.Text),
+                                            IsBlank(DataCardValue169.Text),
+                                            IsBlank(DataCardValue170.Text)),
+                                                Notify("Teste",NotificationType.Error),
+                            
+                                SubmitForm(Form2););
+                                If(
                                 Or(
                                     IsBlank(DataCardValue157.Selected),
                                     IsBlank(DataCardValue158.Selected),
@@ -603,24 +613,27 @@
                                 Notify(
                                     "Enter the required data!",
                                     NotificationType.Error
-                                ),
+                                ),/*
                                 If(
                                     Or(
-                                        DataCardValue5.Selected.Code = "PTD",
+                                        DataCardValue5.Selected.Code = "PTD";
                                         DataCardValue5.Selected.Code = "DTD"
-                                    ),If(
-                                    Or(
-                                        IsBlank(DataCardValue165.Text),
-                                        IsBlank(DataCardValue166.Text),
-                                        IsBlank(DataCardValue169.Text),
-                                        IsBlank(DataCardValue170.Text)
-                                    ),
-                                    Notify(
-                                        "Enter the required data!",
-                                        NotificationType.Error
-                                    ))
-                                ),
-                                SubmitForm(Form2);
+                                    );
+                                    If(
+                                        Or(
+                                            IsBlank(DataCardValue165.Text);
+                                            IsBlank(DataCardValue166.Text);
+                                            IsBlank(DataCardValue169.Text);
+                                            IsBlank(DataCardValue170.Text)
+                                        );
+                                        Notify(
+                                            "Enter the required data! Teste";
+                                            NotificationType.Error
+                                        )
+                                    )
+                                );*/
+                                
+                                ResetForm([@Form2]);
                                 UpdateContext(
                                     {
                                         editMode: false,
@@ -639,7 +652,7 @@
                         TabIndex: =0
                         Visible: =Or(editMode, newMode)
                         Width: =50
-                        ZIndex: =3
+                        ZIndex: =4
 
                     ResetFormButton1 As icon:
                         BorderColor: =RGBA(0, 0, 0, 0)
@@ -665,7 +678,7 @@
                         TabIndex: =0
                         Visible: =Or(editMode, newMode)
                         Width: =50
-                        ZIndex: =4
+                        ZIndex: =5
 
                     EditIconButton1 As icon:
                         BorderColor: =RGBA(0, 0, 0, 0)
@@ -691,7 +704,7 @@
                         TabIndex: =0
                         Visible: =And(!editMode, !newMode, !deleteMode, Open)
                         Width: =50
-                        ZIndex: =5
+                        ZIndex: =6
 
                     DeleteIconButton1 As icon:
                         BorderColor: =RGBA(0, 0, 0, 0)
@@ -717,7 +730,7 @@
                         TabIndex: =0
                         Visible: =And(!editMode, !newMode, !deleteMode, Open)
                         Width: =50
-                        ZIndex: =6
+                        ZIndex: =7
 
                 MainContainer1 As groupContainer.verticalAutoLayoutContainer:
                     DropShadow: =DropShadow.Light
@@ -1123,6 +1136,105 @@
                                 Y: =DataCardKey9.Y
                                 ZIndex: =4
 
+                        POL_Code_DataCard2 As typedDataCard.allowedValuesStringEditCard:
+                            AllowedValues: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.AllowedValues, "field_27")
+                            BorderColor: =RGBA(245, 245, 245, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            DataField: ="field_27"
+                            Default: |-
+                                =If(newMode,"" ,
+                                ThisItem.POL_Code)
+                            DisplayMode: =Parent.DisplayMode
+                            DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_27")
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =95
+                            Required: =true
+                            Update: =DataCardValue13.Selected.POLCode
+                            Width: =458
+                            X: =1
+                            Y: =7
+                            ZIndex: =1
+
+                            DataCardKey13 As label:
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =34
+                                PaddingLeft: =0
+                                Size: =13
+                                Text: ="POL Code"
+                                Width: =Parent.Width - 60
+                                Wrap: =false
+                                X: =30
+                                Y: =10
+                                ZIndex: =1
+
+                            DataCardValue13 As dropdown:
+                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                ChevronBackground: =RGBA(245, 245, 245, 1)
+                                ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                ChevronFill: =RGBA(50, 49, 48, 1)
+                                ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: |-
+                                    =If(newMode,"",
+                                    Parent.Default)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                DisplayMode: =Parent.DisplayMode
+                                Fill: =RGBA(245, 245, 245, 1)
+                                Font: =Font.'Segoe UI'
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(245, 245, 245, 1)
+                                Items: =DataDefault
+                                PaddingBottom: =5
+                                PaddingLeft: =12
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                PressedBorderColor: =RGBA(16, 110, 190, 1)
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(0, 120, 212, 1)
+                                SelectionColor: =RGBA(50, 49, 48, 1)
+                                SelectionFill: =RGBA(0, 120, 212, 1)
+                                Size: =13
+                                Tooltip: ="POL Code"
+                                Width: =Parent.Width - 60
+                                X: =30
+                                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                                ZIndex: =2
+
+                            StarVisible12 As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =DataCardKey13.Height
+                                PaddingLeft: =0
+                                Size: =13
+                                Text: ="*"
+                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                Width: =30
+                                Wrap: =false
+                                Y: =DataCardKey13.Y
+                                ZIndex: =4
+
                         POD_Code_DataCard3 As typedDataCard.allowedValuesStringEditCard:
                             AllowedValues: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.AllowedValues, "field_28")
                             BorderColor: =RGBA(245, 245, 245, 1)
@@ -1170,7 +1282,9 @@
                                 ChevronHoverBackground: =RGBA(245, 245, 245, 1)
                                 ChevronHoverFill: =RGBA(50, 49, 48, 1)
                                 Color: =RGBA(50, 49, 48, 1)
-                                Default: =Parent.Default
+                                Default: |-
+                                    =If(newMode,"",
+                                    Parent.Default)
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
                                 DisabledFill: =RGBA(242, 242, 241, 0)
@@ -1216,101 +1330,6 @@
                                 Width: =30
                                 Wrap: =false
                                 Y: =DataCardKey11.Y
-                                ZIndex: =4
-
-                        POL_Code_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                            AllowedValues: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.AllowedValues, "field_27")
-                            BorderColor: =RGBA(245, 245, 245, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="field_27"
-                            Default: =ThisItem.POL_Code
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_27")
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =95
-                            Required: =true
-                            Update: =DataCardValue13.Selected.POLCode
-                            Width: =458
-                            X: =1
-                            Y: =7
-                            ZIndex: =1
-
-                            DataCardKey13 As label:
-                                AutoHeight: =true
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =34
-                                PaddingLeft: =0
-                                Size: =13
-                                Text: ="POL Code"
-                                Width: =Parent.Width - 60
-                                Wrap: =false
-                                X: =30
-                                Y: =10
-                                ZIndex: =1
-
-                            DataCardValue13 As dropdown:
-                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                                ChevronBackground: =RGBA(245, 245, 245, 1)
-                                ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
-                                ChevronDisabledFill: =RGBA(161, 159, 157, 1)
-                                ChevronFill: =RGBA(50, 49, 48, 1)
-                                ChevronHoverBackground: =RGBA(245, 245, 245, 1)
-                                ChevronHoverFill: =RGBA(50, 49, 48, 1)
-                                Color: =RGBA(50, 49, 48, 1)
-                                Default: =Parent.Default
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                DisabledFill: =RGBA(242, 242, 241, 0)
-                                DisplayMode: =Parent.DisplayMode
-                                Fill: =RGBA(245, 245, 245, 1)
-                                Font: =Font.'Segoe UI'
-                                HoverBorderColor: =RGBA(16, 110, 190, 1)
-                                HoverColor: =RGBA(50, 49, 48, 1)
-                                HoverFill: =RGBA(245, 245, 245, 1)
-                                Items: =DataDefault
-                                PaddingBottom: =5
-                                PaddingLeft: =12
-                                PaddingRight: =5
-                                PaddingTop: =5
-                                PressedBorderColor: =RGBA(16, 110, 190, 1)
-                                PressedColor: =RGBA(255, 255, 255, 1)
-                                PressedFill: =RGBA(0, 120, 212, 1)
-                                SelectionColor: =RGBA(50, 49, 48, 1)
-                                SelectionFill: =RGBA(0, 120, 212, 1)
-                                Size: =13
-                                Tooltip: ="POL Code"
-                                Width: =Parent.Width - 60
-                                X: =30
-                                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
-                                ZIndex: =2
-
-                            StarVisible12 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =DataCardKey13.Height
-                                PaddingLeft: =0
-                                Size: =13
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                Wrap: =false
-                                Y: =DataCardKey13.Y
                                 ZIndex: =4
 
                         Equipment_Type_DataCard2 As typedDataCard.allowedValuesStringEditCard:
@@ -1501,6 +1520,107 @@
                                 Width: =30
                                 Wrap: =false
                                 Y: =DataCardKey17.Y
+                                ZIndex: =4
+
+                        Port_Pair_DataCard2 As typedDataCard.textualEditCard:
+                            BorderColor: =RGBA(245, 245, 245, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            DataField: ="field_19"
+                            Default: =ThisItem.Port_Pair
+                            DisplayMode: =Parent.DisplayMode
+                            DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_19")
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =103
+                            MaxLength: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.MaxLength, "field_19")
+                            Required: =false
+                            Update: =DataCardValue163.Text
+                            Width: =458
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                            DataCardKey168 As label:
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =34
+                                PaddingLeft: =0
+                                Size: =13
+                                Text: =Parent.DisplayName
+                                Width: =Parent.Width - 60
+                                Wrap: =false
+                                X: =30
+                                Y: =10
+                                ZIndex: =1
+
+                            DataCardValue163 As text:
+                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: |-
+                                    =If(
+                                        Or(editMode,newMode),
+                                        Left(
+                                            DataCardValue13.Selected.POLCode, //POL
+                                            5
+                                        ) & "_" & Left(
+                                            DataCardValue11.Selected.POLCode,// POD
+                                            5
+                                        ),
+                                        Parent.Default
+                                    )
+                                DelayOutput: =true
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                MaxLength: =Parent.MaxLength
+                                PaddingLeft: =5
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =13
+                                Tooltip: =Parent.DisplayName
+                                Width: =Parent.Width - 60
+                                X: =30
+                                Y: =DataCardKey168.Y + DataCardKey168.Height + 5
+                                ZIndex: =2
+
+                            StarVisible168 As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =DataCardKey168.Height
+                                PaddingLeft: =0
+                                Size: =13
+                                Text: ="*"
+                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                Width: =30
+                                Wrap: =false
+                                Y: =DataCardKey168.Y
                                 ZIndex: =4
 
                         Lane_ID_DataCard2 As typedDataCard.textualEditCard:
@@ -2065,107 +2185,6 @@
                                 Y: =DataCardKey299.Y
                                 ZIndex: =4
 
-                        Port_Pair_DataCard2 As typedDataCard.textualEditCard:
-                            BorderColor: =RGBA(245, 245, 245, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="field_19"
-                            Default: =ThisItem.Port_Pair
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_19")
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =103
-                            MaxLength: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.MaxLength, "field_19")
-                            Required: =false
-                            Update: =DataCardValue163.Text
-                            Width: =458
-                            X: =0
-                            Y: =0
-                            ZIndex: =2
-
-                            DataCardKey168 As label:
-                                AutoHeight: =true
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =34
-                                PaddingLeft: =0
-                                Size: =13
-                                Text: =Parent.DisplayName
-                                Width: =Parent.Width - 60
-                                Wrap: =false
-                                X: =30
-                                Y: =10
-                                ZIndex: =1
-
-                            DataCardValue163 As text:
-                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                Default: |-
-                                    =If(
-                                        Or(editMode,newMode),
-                                        Left(
-                                            DataCardValue13.Selected.POLCode, //POL
-                                            5
-                                        ) & "_" & Left(
-                                            DataCardValue11.Selected.POLCode,// POD
-                                            5
-                                        ),
-                                        Parent.Default
-                                    )
-                                DelayOutput: =true
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                DisabledFill: =RGBA(242, 242, 241, 0)
-                                DisplayMode: =DisplayMode.View
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                HoverBorderColor: =RGBA(16, 110, 190, 1)
-                                HoverColor: =RGBA(50, 49, 48, 1)
-                                HoverFill: =RGBA(255, 255, 255, 1)
-                                MaxLength: =Parent.MaxLength
-                                PaddingLeft: =5
-                                PressedBorderColor: =RGBA(0, 120, 212, 1)
-                                PressedColor: =RGBA(50, 49, 48, 1)
-                                PressedFill: =RGBA(255, 255, 255, 1)
-                                RadiusBottomLeft: =0
-                                RadiusBottomRight: =0
-                                RadiusTopLeft: =0
-                                RadiusTopRight: =0
-                                Size: =13
-                                Tooltip: =Parent.DisplayName
-                                Width: =Parent.Width - 60
-                                X: =30
-                                Y: =DataCardKey168.Y + DataCardKey168.Height + 5
-                                ZIndex: =2
-
-                            StarVisible168 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =DataCardKey168.Height
-                                PaddingLeft: =0
-                                Size: =13
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                Wrap: =false
-                                Y: =DataCardKey168.Y
-                                ZIndex: =4
-
                         "'Origin_City_(for_Pre-Carriage_Pickup_Only)_DataCard2' As typedDataCard.textualEditCard":
                             BorderColor: =RGBA(245, 245, 245, 1)
                             BorderStyle: =BorderStyle.Solid
@@ -2176,7 +2195,7 @@
                             Fill: =RGBA(0, 0, 0, 0)
                             Height: =101
                             MaxLength: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.MaxLength, "field_21")
-                            Required: =If(Or(DataCardValue5.Selected.Code = "DTP",DataCardValue5.Selected.Code = "DTD"),true,false)
+                            Required: =false
                             Update: =DataCardValue165.Text
                             Width: =458
                             X: =0
@@ -6011,4 +6030,19 @@
         X: =366
         Y: =16
         ZIndex: =5
+
+    Label7_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Size: =13
+        Text: =newMode
+        X: =470
+        Y: =16
+        ZIndex: =6
 
