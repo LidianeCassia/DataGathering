@@ -577,7 +577,7 @@
                                             IsBlank(DataCardValue170.Text)),
                                                 Notify("Teste",NotificationType.Error),
                             
-                                SubmitForm(Form2););
+                                SubmitForm(Form2)),
                                 If(
                                 Or(
                                     IsBlank(DataCardValue157.Selected),
@@ -613,25 +613,8 @@
                                 Notify(
                                     "Enter the required data!",
                                     NotificationType.Error
-                                ),/*
-                                If(
-                                    Or(
-                                        DataCardValue5.Selected.Code = "PTD";
-                                        DataCardValue5.Selected.Code = "DTD"
-                                    );
-                                    If(
-                                        Or(
-                                            IsBlank(DataCardValue165.Text);
-                                            IsBlank(DataCardValue166.Text);
-                                            IsBlank(DataCardValue169.Text);
-                                            IsBlank(DataCardValue170.Text)
-                                        );
-                                        Notify(
-                                            "Enter the required data! Teste";
-                                            NotificationType.Error
-                                        )
-                                    )
-                                );*/
+                                ),
+                                SubmitForm([@Form2]),
                                 
                                 ResetForm([@Form2]);
                                 UpdateContext(
@@ -640,8 +623,8 @@
                                         newMode: false
                                     }
                                 )
-                            )
-                            //)
+                            
+                                ))
                         PaddingBottom: =12
                         PaddingLeft: =12
                         PaddingRight: =12
@@ -6015,34 +5998,4 @@
             X: =0
             Y: =0
             ZIndex: =12
-
-    Label7 As label:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        Color: =RGBA(255, 255, 255, 1)
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        FocusedBorderThickness: =4
-        Font: =Font.'Segoe UI'
-        Size: =13
-        Text: =DataCardValue5.Selected.Code
-        X: =366
-        Y: =16
-        ZIndex: =5
-
-    Label7_1 As label:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        Color: =RGBA(255, 255, 255, 1)
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        FocusedBorderThickness: =4
-        Font: =Font.'Segoe UI'
-        Size: =13
-        Text: =newMode
-        X: =470
-        Y: =16
-        ZIndex: =6
 
