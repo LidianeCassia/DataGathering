@@ -6801,10 +6801,17 @@
                 NoAttachmentsColor: =RGBA(161, 159, 157, 1)
                 NoAttachmentsText: ="There is nothing attached."
                 OnAddFile: |-
-                    =SubmitForm(formDoInput);
+                    =Clear(ErrosEncontrados);
+                    SubmitForm(formDoInput);
                     Set(
                         RetornoJson,
                         'InputEmMassa-DataGathering'.Run(formDoInput.LastSubmit.ID).returnflow)
+                    ;
+                    Set(RetornoJson,Substitute(
+                        RetornoJson,"["&Char(34),"{"))
+                    ;
+                    Set(RetornoJson,Substitute(
+                        RetornoJson,Char(34)&"]","}"))
                     ;
                     ClearCollect(
                         RetornoJson2,
@@ -6893,7 +6900,7 @@
                         If(
                             Or(
                                 Trim(ThisRecord.Service_Structure) = "PTD",
-                                Trim(ThisRecord.Service_Structure) = "DTP"
+                                Trim(ThisRecord.Service_Structure) = "DTD"
                             ) And ThisRecord.'Destination_City_(for_On-Carriage_Delivery_Only)' = "",
                             Collect(
                                 ErrosEncontrados,
@@ -6906,7 +6913,7 @@
                         If(
                             Or(
                                 Trim(ThisRecord.Service_Structure) = "PTD",
-                                Trim(ThisRecord.Service_Structure) = "DTP"
+                                Trim(ThisRecord.Service_Structure) = "DTD"
                             ) And ThisRecord.Delivery_Address = "",
                             Collect(
                                 ErrosEncontrados,
@@ -6917,7 +6924,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.Service_Structure) = Blank(),
+                            Trim(ThisRecord.Service_Structure) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -6927,7 +6934,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.Port_Pair) = Blank(),
+                            Trim(ThisRecord.Port_Pair) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -6937,7 +6944,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.Port_Pair) = Blank(),
+                            Trim(ThisRecord.Port_Pair) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -6947,7 +6954,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'Dangerous_Goods_Y/N') = Blank(),
+                            Trim(ThisRecord.'Dangerous_Goods_Y/N') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -6957,7 +6964,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.Market_SPOC) = Blank(),
+                            Trim(ThisRecord.Market_SPOC) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -6967,7 +6974,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.End_Market_Responsible) = Blank(),
+                            Trim(ThisRecord.End_Market_Responsible) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -6977,7 +6984,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.BAT_Region) = Blank(),
+                            Trim(ThisRecord.BAT_Region) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -6987,7 +6994,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.BAT_entity_responsible_for_the_payment_) = Blank(),
+                            Trim(ThisRecord.BAT_entity_responsible_for_the_payment_) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -6997,7 +7004,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.POL_Code) = Blank(),
+                            Trim(ThisRecord.POL_Code) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7007,7 +7014,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.Origin_Country) = Blank(),
+                            Trim(ThisRecord.Origin_Country) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7017,7 +7024,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.POD_Code) = Blank(),
+                            Trim(ThisRecord.POD_Code) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7027,7 +7034,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.Destination_Country) = Blank(),
+                            Trim(ThisRecord.Destination_Country) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7037,7 +7044,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.Equipment_Type) = Blank(),
+                            Trim(ThisRecord.Equipment_Type) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7047,7 +7054,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.Commodity) = Blank(),
+                            Trim(ThisRecord.Commodity) = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7057,7 +7064,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'Total_Volume_(CTR)') = Blank(),
+                            Trim(ThisRecord.'Total_Volume_(CTR)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7067,7 +7074,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(April)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(April)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7077,7 +7084,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(May)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(May)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7087,7 +7094,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(June)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(June)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7097,7 +7104,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(July)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(July)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7107,7 +7114,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(August)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(August)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7117,7 +7124,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(September)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(September)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7127,7 +7134,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(October)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(October)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7137,7 +7144,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(November)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(November)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7147,7 +7154,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(December)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(December)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7157,7 +7164,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(January)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(January)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7167,7 +7174,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(February)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(February)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7177,7 +7184,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'_of_CTR_(March)') = Blank(),
+                            Trim(ThisRecord.'_of_CTR_(March)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7187,7 +7194,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'Requested_DEM_Time_at_POL_(Days)') = Blank(),
+                            Trim(ThisRecord.'Requested_DEM_Time_at_POL_(Days)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7197,7 +7204,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'Requested_DET_Time_at_POL_(Days)') = Blank(),
+                            Trim(ThisRecord.'Requested_DET_Time_at_POL_(Days)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7207,7 +7214,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'Requested_DEM_Time_at_POD_(Days)') = Blank(),
+                            Trim(ThisRecord.'Requested_DEM_Time_at_POD_(Days)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
@@ -7217,7 +7224,7 @@
                             )
                         );
                         If(
-                            Trim(ThisRecord.'Requested_DET_Time_at_POD_(Days)') = Blank(),
+                            Trim(ThisRecord.'Requested_DET_Time_at_POD_(Days)') = "",
                             Collect(
                                 ErrosEncontrados,
                                 {
