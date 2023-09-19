@@ -95,6 +95,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.ComboBox1.SearchItems"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.ComboBox1.SearchItems",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 19,
+                  "charOffset": 49,
+                  "snippet": {
+                    "text": "\"ComplianceAssetId\""
+                  }
+                }
+              },
+              "properties": {
+                "member": "SearchItems",
+                "module": "MainScreen1",
+                "type": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.ComboBox1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Search"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "AddMultilpletTest.DataTable1.Market_SPOC_Column1.Text"
                 }
               ],
@@ -5898,6 +5938,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.ComboBox1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.ComboBox1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "MainScreen1",
+                "type": "MainScreen1.ScreenContainer1.BodyContainer1.SidebarContainer1.SearchContainer1_1.ComboBox1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.1"
                 }
               ],
@@ -7325,7 +7395,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Cada controle consome recursos e, quando uma tela tem muitos controles, o aplicativo pode ficar lento ou parar de responder. A complexidade estimada de \"MainScreen1\" é 302, o que excede o limite máximo recomendado (300)."
+                "whyFix": "Cada controle consome recursos e, quando uma tela tem muitos controles, o aplicativo pode ficar lento ou parar de responder. A complexidade estimada de \"MainScreen1\" é 303, o que excede o limite máximo recomendado (300)."
               }
             },
             {

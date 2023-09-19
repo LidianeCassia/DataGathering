@@ -244,6 +244,34 @@
                         Width: =100
                         ZIndex: =4
 
+                    ComboBox1 As combobox:
+                        BorderColor: =RGBA(245, 245, 245, 1)
+                        ChevronBackground: =RGBA(245, 245, 245, 1)
+                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                        ChevronFill: =RGBA(50, 49, 48, 1)
+                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                        Color: =RGBA(50, 49, 48, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisabledFill: =RGBA(242, 242, 241, 0)
+                        DisplayFields: =["ComplianceAssetId"]
+                        Fill: =RGBA(245, 245, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(50, 49, 48, 1)
+                        HoverFill: =RGBA(245, 245, 245, 1)
+                        Items: ='Data GatheringMain'
+                        PressedBorderColor: =RGBA(16, 110, 190, 1)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 120, 212, 1)
+                        SearchFields: =["ComplianceAssetId"]
+                        SearchItems: =Search('Data GatheringMain',ComboBox1.SearchText,"ComplianceAssetId")
+                        SelectionFill: =RGBA(0, 120, 212, 1)
+                        Size: =13
+                        ZIndex: =5
+
                 "RecordsGallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
                     BorderColor: =RGBA(245, 245, 245, 1)
                     BorderThickness: =1
@@ -251,17 +279,25 @@
                     DelayItemLoading: =true
                     Fill: =RGBA(250, 250, 250, 1)
                     Items: |-
-                        =//Search([@'Data GatheringMain']; SearchInput1.Text; "field_19")
-                        Filter(
+                        =Filter(
                             'Data GatheringMain',
                             And(
-                            Or(
-                                IsBlank(ComboBox5.SelectedItems),
-                                IsEmpty(ComboBox5.SelectedItems),
-                        
-                        
-                                Market_SPOC.DisplayName = Last(FirstN(ComboBox5.SelectedItems,1)).Market_SPOC.DisplayName)),
-                                StartsWith(Port_Pair,SearchInput1.Text))
+                                Or(
+                                    IsBlank(ComboBox5.SelectedItems),
+                                    IsEmpty(ComboBox5.SelectedItems),
+                                    Market_SPOC.DisplayName = Last(
+                                        FirstN(
+                                            ComboBox5.SelectedItems,
+                                            1
+                                        )
+                                    ).Market_SPOC.DisplayName
+                                )
+                            ),
+                            StartsWith(
+                                Port_Pair,
+                                SearchInput1.Text
+                            )
+                        )
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =287
                     LayoutMinWidth: =320
