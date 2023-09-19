@@ -31,7 +31,7 @@ Cabecalho As CanvasComponent:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
             BorderThickness: =2
-            Color: =RGBA(207, 207, 207, 1)
+            Color: =RGBA(255, 255, 255, 1)
             DisabledBorderColor: =RGBA(0, 0, 0, 0)
             DisabledColor: =RGBA(161, 159, 157, 1)
             FocusedBorderThickness: =4
@@ -40,8 +40,7 @@ Cabecalho As CanvasComponent:
             Height: =72
             Size: =26
             Text: ="Data Gathering"
-            Width: =423
-            X: =122
+            Width: =293
             ZIndex: =3
 
     Colors As group:

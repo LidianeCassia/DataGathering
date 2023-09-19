@@ -1,6 +1,10 @@
 "MainScreen1 As screen.'copilotAppSinglePage_ver1.0'":
     Fill: =RGBA(0, 0, 0, 0)
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =UpdateContext({AparecerLoad: true});
+        UpdateContext({CtxImport:false});
+        UpdateContext({AparecerLoad: false});
 
     ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
         Fill: =RGBA(207, 207, 207, 1)
@@ -44,7 +48,7 @@
             PaddingLeft: =2
             PaddingRight: =2
             PaddingTop: =2
-            ZIndex: =4
+            ZIndex: =3
 
             SidebarContainer1 As groupContainer.verticalAutoLayoutContainer:
                 DropShadow: =DropShadow.Light
@@ -134,6 +138,7 @@
                         LayoutMinHeight: =40
                         OnSelect: |-
                             =UpdateContext({CtxImport:true});
+                            UpdateContext({AparecerForm:DisplayMode.Disabled});
                             NewForm(formDoInput)
                         PaddingBottom: =5
                         PaddingLeft: =3
@@ -1107,101 +1112,6 @@
                                 Y: =DataCardKey9.Y
                                 ZIndex: =4
 
-                        POL_Code_DataCard2 As typedDataCard.allowedValuesStringEditCard:
-                            AllowedValues: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.AllowedValues, "field_27")
-                            BorderColor: =RGBA(245, 245, 245, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="field_27"
-                            Default: =ThisItem.POL_Code
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_27")
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =95
-                            Required: =true
-                            Update: =DataCardValue13.Selected.POLCode
-                            Width: =458
-                            X: =1
-                            Y: =7
-                            ZIndex: =1
-
-                            DataCardKey13 As label:
-                                AutoHeight: =true
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =34
-                                PaddingLeft: =0
-                                Size: =13
-                                Text: ="POL Code"
-                                Width: =Parent.Width - 60
-                                Wrap: =false
-                                X: =30
-                                Y: =10
-                                ZIndex: =1
-
-                            DataCardValue13 As dropdown:
-                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                                ChevronBackground: =RGBA(245, 245, 245, 1)
-                                ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
-                                ChevronDisabledFill: =RGBA(161, 159, 157, 1)
-                                ChevronFill: =RGBA(50, 49, 48, 1)
-                                ChevronHoverBackground: =RGBA(245, 245, 245, 1)
-                                ChevronHoverFill: =RGBA(50, 49, 48, 1)
-                                Color: =RGBA(50, 49, 48, 1)
-                                Default: =Parent.Default
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                DisabledFill: =RGBA(242, 242, 241, 0)
-                                DisplayMode: =Parent.DisplayMode
-                                Fill: =RGBA(245, 245, 245, 1)
-                                Font: =Font.'Segoe UI'
-                                HoverBorderColor: =RGBA(16, 110, 190, 1)
-                                HoverColor: =RGBA(50, 49, 48, 1)
-                                HoverFill: =RGBA(245, 245, 245, 1)
-                                Items: =DataDefault
-                                PaddingBottom: =5
-                                PaddingLeft: =12
-                                PaddingRight: =5
-                                PaddingTop: =5
-                                PressedBorderColor: =RGBA(16, 110, 190, 1)
-                                PressedColor: =RGBA(255, 255, 255, 1)
-                                PressedFill: =RGBA(0, 120, 212, 1)
-                                SelectionColor: =RGBA(50, 49, 48, 1)
-                                SelectionFill: =RGBA(0, 120, 212, 1)
-                                Size: =13
-                                Tooltip: ="POL Code"
-                                Width: =Parent.Width - 60
-                                X: =30
-                                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
-                                ZIndex: =2
-
-                            StarVisible12 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =DataCardKey13.Height
-                                PaddingLeft: =0
-                                Size: =13
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                Wrap: =false
-                                Y: =DataCardKey13.Y
-                                ZIndex: =4
-
                         POD_Code_DataCard3 As typedDataCard.allowedValuesStringEditCard:
                             AllowedValues: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.AllowedValues, "field_28")
                             BorderColor: =RGBA(245, 245, 245, 1)
@@ -1295,6 +1205,101 @@
                                 Width: =30
                                 Wrap: =false
                                 Y: =DataCardKey11.Y
+                                ZIndex: =4
+
+                        POL_Code_DataCard2 As typedDataCard.allowedValuesStringEditCard:
+                            AllowedValues: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.AllowedValues, "field_27")
+                            BorderColor: =RGBA(245, 245, 245, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            DataField: ="field_27"
+                            Default: =ThisItem.POL_Code
+                            DisplayMode: =Parent.DisplayMode
+                            DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_27")
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =95
+                            Required: =true
+                            Update: =DataCardValue13.Selected.POLCode
+                            Width: =458
+                            X: =1
+                            Y: =7
+                            ZIndex: =1
+
+                            DataCardKey13 As label:
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =34
+                                PaddingLeft: =0
+                                Size: =13
+                                Text: ="POL Code"
+                                Width: =Parent.Width - 60
+                                Wrap: =false
+                                X: =30
+                                Y: =10
+                                ZIndex: =1
+
+                            DataCardValue13 As dropdown:
+                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                ChevronBackground: =RGBA(245, 245, 245, 1)
+                                ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                                ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                                ChevronFill: =RGBA(50, 49, 48, 1)
+                                ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                                ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: =Parent.Default
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                DisplayMode: =Parent.DisplayMode
+                                Fill: =RGBA(245, 245, 245, 1)
+                                Font: =Font.'Segoe UI'
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(245, 245, 245, 1)
+                                Items: =DataDefault
+                                PaddingBottom: =5
+                                PaddingLeft: =12
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                PressedBorderColor: =RGBA(16, 110, 190, 1)
+                                PressedColor: =RGBA(255, 255, 255, 1)
+                                PressedFill: =RGBA(0, 120, 212, 1)
+                                SelectionColor: =RGBA(50, 49, 48, 1)
+                                SelectionFill: =RGBA(0, 120, 212, 1)
+                                Size: =13
+                                Tooltip: ="POL Code"
+                                Width: =Parent.Width - 60
+                                X: =30
+                                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                                ZIndex: =2
+
+                            StarVisible12 As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =DataCardKey13.Height
+                                PaddingLeft: =0
+                                Size: =13
+                                Text: ="*"
+                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                Width: =30
+                                Wrap: =false
+                                Y: =DataCardKey13.Y
                                 ZIndex: =4
 
                         Equipment_Type_DataCard2 As typedDataCard.allowedValuesStringEditCard:
@@ -1485,107 +1490,6 @@
                                 Width: =30
                                 Wrap: =false
                                 Y: =DataCardKey17.Y
-                                ZIndex: =4
-
-                        Port_Pair_DataCard2 As typedDataCard.textualEditCard:
-                            BorderColor: =RGBA(245, 245, 245, 1)
-                            BorderStyle: =BorderStyle.Solid
-                            DataField: ="field_19"
-                            Default: =ThisItem.Port_Pair
-                            DisplayMode: =Parent.DisplayMode
-                            DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_19")
-                            Fill: =RGBA(0, 0, 0, 0)
-                            Height: =50
-                            MaxLength: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.MaxLength, "field_19")
-                            Required: =false
-                            Update: =DataCardValue163.Text
-                            Width: =457
-                            X: =0
-                            Y: =0
-                            ZIndex: =2
-
-                            DataCardKey168 As label:
-                                AutoHeight: =true
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =34
-                                PaddingLeft: =0
-                                Size: =13
-                                Text: =Parent.DisplayName
-                                Width: =Parent.Width - 60
-                                Wrap: =false
-                                X: =30
-                                Y: =10
-                                ZIndex: =1
-
-                            DataCardValue163 As text:
-                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                Default: |-
-                                    =If(
-                                        DisplayMode.Edit,
-                                        Left(
-                                            DataCardValue13.Selected.POLCode, //POL
-                                            5
-                                        ) & "_" & Left(
-                                            DataCardValue11.Selected.POLCode,// POD
-                                            5
-                                        ),
-                                        Parent.Default
-                                    )
-                                DelayOutput: =true
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                DisabledFill: =RGBA(242, 242, 241, 0)
-                                DisplayMode: =DisplayMode.View
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                HoverBorderColor: =RGBA(16, 110, 190, 1)
-                                HoverColor: =RGBA(50, 49, 48, 1)
-                                HoverFill: =RGBA(255, 255, 255, 1)
-                                MaxLength: =Parent.MaxLength
-                                PaddingLeft: =5
-                                PressedBorderColor: =RGBA(0, 120, 212, 1)
-                                PressedColor: =RGBA(50, 49, 48, 1)
-                                PressedFill: =RGBA(255, 255, 255, 1)
-                                RadiusBottomLeft: =0
-                                RadiusBottomRight: =0
-                                RadiusTopLeft: =0
-                                RadiusTopRight: =0
-                                Size: =13
-                                Tooltip: =Parent.DisplayName
-                                Width: =Parent.Width - 60
-                                X: =30
-                                Y: =DataCardKey168.Y + DataCardKey168.Height + 5
-                                ZIndex: =2
-
-                            StarVisible168 As label:
-                                Align: =Align.Center
-                                BorderColor: =RGBA(0, 0, 0, 0)
-                                BorderStyle: =BorderStyle.None
-                                BorderThickness: =2
-                                Color: =RGBA(50, 49, 48, 1)
-                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                                DisabledColor: =RGBA(161, 159, 157, 1)
-                                FocusedBorderThickness: =4
-                                Font: =Font.'Segoe UI'
-                                FontWeight: =FontWeight.Semibold
-                                Height: =DataCardKey168.Height
-                                PaddingLeft: =0
-                                Size: =13
-                                Text: ="*"
-                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                                Width: =30
-                                Wrap: =false
-                                Y: =DataCardKey168.Y
                                 ZIndex: =4
 
                         Lane_ID_DataCard2 As typedDataCard.textualEditCard:
@@ -2146,6 +2050,107 @@
                                 Width: =30
                                 Wrap: =false
                                 Y: =DataCardKey299.Y
+                                ZIndex: =4
+
+                        Port_Pair_DataCard2 As typedDataCard.textualEditCard:
+                            BorderColor: =RGBA(245, 245, 245, 1)
+                            BorderStyle: =BorderStyle.Solid
+                            DataField: ="field_19"
+                            Default: =ThisItem.Port_Pair
+                            DisplayMode: =Parent.DisplayMode
+                            DisplayName: =DataSourceInfo([@'Data GatheringMain'],DataSourceInfo.DisplayName,"field_19")
+                            Fill: =RGBA(0, 0, 0, 0)
+                            Height: =50
+                            MaxLength: =DataSourceInfo([@'Data GatheringMain'], DataSourceInfo.MaxLength, "field_19")
+                            Required: =false
+                            Update: =DataCardValue163.Text
+                            Width: =457
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                            DataCardKey168 As label:
+                                AutoHeight: =true
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =34
+                                PaddingLeft: =0
+                                Size: =13
+                                Text: =Parent.DisplayName
+                                Width: =Parent.Width - 60
+                                Wrap: =false
+                                X: =30
+                                Y: =10
+                                ZIndex: =1
+
+                            DataCardValue163 As text:
+                                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                Default: |-
+                                    =If(
+                                        DisplayMode.Edit,
+                                        Left(
+                                            DataCardValue13.Selected.POLCode, //POL
+                                            5
+                                        ) & "_" & Left(
+                                            DataCardValue11.Selected.POLCode,// POD
+                                            5
+                                        ),
+                                        Parent.Default
+                                    )
+                                DelayOutput: =true
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                DisabledFill: =RGBA(242, 242, 241, 0)
+                                DisplayMode: =DisplayMode.View
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                HoverBorderColor: =RGBA(16, 110, 190, 1)
+                                HoverColor: =RGBA(50, 49, 48, 1)
+                                HoverFill: =RGBA(255, 255, 255, 1)
+                                MaxLength: =Parent.MaxLength
+                                PaddingLeft: =5
+                                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                                PressedColor: =RGBA(50, 49, 48, 1)
+                                PressedFill: =RGBA(255, 255, 255, 1)
+                                RadiusBottomLeft: =0
+                                RadiusBottomRight: =0
+                                RadiusTopLeft: =0
+                                RadiusTopRight: =0
+                                Size: =13
+                                Tooltip: =Parent.DisplayName
+                                Width: =Parent.Width - 60
+                                X: =30
+                                Y: =DataCardKey168.Y + DataCardKey168.Height + 5
+                                ZIndex: =2
+
+                            StarVisible168 As label:
+                                Align: =Align.Center
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(50, 49, 48, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(161, 159, 157, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =FontWeight.Semibold
+                                Height: =DataCardKey168.Height
+                                PaddingLeft: =0
+                                Size: =13
+                                Text: ="*"
+                                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                Width: =30
+                                Wrap: =false
+                                Y: =DataCardKey168.Y
                                 ZIndex: =4
 
                         "'Origin_City_(for_Pre-Carriage_Pickup_Only)_DataCard2' As typedDataCard.textualEditCard":
@@ -5719,6 +5724,27 @@
                         Text: ="Delete"
                         ZIndex: =28
 
+    Icon2 As icon.History:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(207, 207, 207, 1)
+        DisabledBorderColor: =RGBA(245, 245, 245, 1)
+        DisabledColor: =RGBA(225, 223, 221, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(207, 207, 207, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Screen1,ScreenTransition.Fade)
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =RGBA(16, 110, 190, 1)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =If(Or(User().Email = "85178101@bat.com",User().Email ="rodrigo.soares@bat.com",User().Email ="lucas_biriba_external@bat.com"),true,false)
+        Width: =36
+        X: =1290
+        Y: =16
+        ZIndex: =2
+
     Container1 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Fill: =RGBA(207, 207, 207, 0.8)
@@ -5729,7 +5755,7 @@
         RadiusTopRight: =4
         Visible: =CtxImport
         Width: =1366
-        ZIndex: =2
+        ZIndex: =4
 
         Label4 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -5834,542 +5860,127 @@
             Y: =308
             ZIndex: =5
 
-    Icon2 As icon.History:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        Color: =RGBA(207, 207, 207, 1)
-        DisabledBorderColor: =RGBA(245, 245, 245, 1)
-        DisabledColor: =RGBA(225, 223, 221, 1)
-        DisabledFill: =RGBA(0, 0, 0, 0)
-        FocusedBorderThickness: =4
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: =RGBA(207, 207, 207, 1)
-        HoverFill: =RGBA(0, 0, 0, 0)
-        Icon: =Icon.BackArrow
-        OnSelect: =Navigate(Screen1,ScreenTransition.Fade)
-        PressedBorderColor: =RGBA(0, 0, 0, 0)
-        PressedColor: =RGBA(16, 110, 190, 1)
-        PressedFill: =RGBA(0, 0, 0, 0)
-        Visible: =If(Or(User().Email = "85178101@bat.com",User().Email ="rodrigo.soares@bat.com",User().Email ="lucas_biriba_external@bat.com"),true,false)
-        Width: =36
-        X: =1290
-        Y: =16
-        ZIndex: =3
-
-    formDoInput As form:
-        BorderColor: =RGBA(245, 245, 245, 1)
-        DataSource: ='Input em massa - temporário'
-        Height: =217
-        Visible: =CtxImport
-        Width: =599
-        X: =384
-        Y: =316
-        ZIndex: =4
-
-        Anexos_DataCard1 As typedDataCard.attachmentsEditCard:
+        formDoInput As form:
             BorderColor: =RGBA(245, 245, 245, 1)
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="{Attachments}"
-            Default: =ThisItem.Anexos
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@'Input em massa - temporário'],DataSourceInfo.DisplayName,"{Attachments}")
-            Fill: =RGBA(0, 0, 0, 0)
+            DataSource: ='Input em massa - temporário'
             Height: =217
-            Required: =false
-            Update: =DataCardValue2.Attachments
-            Width: =597
+            Visible: =CtxImport
+            Width: =294
+            X: =689
+            Y: =314
+            ZIndex: =6
+
+        DataCardKey2_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(9, 33, 98, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =48
+            PaddingLeft: =0
+            Size: =13
+            Text: ="Download"
+            Width: =188
+            Wrap: =false
+            X: =400
+            Y: =314
+            ZIndex: =7
+
+        Export1 As export:
+            BorderColor: =RGBA(0, 120, 212, 1)
+            BorderStyle: =BorderStyle.None
+            DisabledBorderColor: =RGBA(225, 223, 221, 1)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            DisabledFill: =RGBA(242, 242, 241, 0)
+            Fill: =RGBA(14, 43, 99, 1)
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Normal
+            Height: =30
+            HoverBorderColor: =RGBA(222, 236, 249, 1)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =RGBA(16, 110, 190, 1)
+            OnSelect: =
+            PressedBorderColor: =RGBA(222, 236, 249, 1)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(16, 110, 190, 1)
+            Size: =13
+            Text: ="Download"
+            Width: =120
+            X: =400
+            Y: =480
+            ZIndex: =8
+
+        DataCardKey2_2 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(9, 33, 98, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =77
+            LineHeight: =1
+            PaddingLeft: =0
+            Size: =13
+            Text: |-
+                ="Sending the attachment will only be allowed after downloading the model file. Please download below.
+                Thanks!"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =289
+            X: =400
+            Y: =357
+            ZIndex: =9
+
+        DataCardKey2_3 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(9, 33, 98, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(161, 159, 157, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =27
+            LineHeight: =1
+            PaddingLeft: =0
+            Size: =13
+            Text: |-
+                ="Excel template version: 0.1"
+            VerticalAlign: =VerticalAlign.Top
+            Width: =289
+            X: =400
+            Y: =446
+            ZIndex: =10
+
+        Rectangle3 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(0, 0, 0, 0.29)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =768
+            HoverFill: =RGBA(0, 120, 212, 1)
+            PressedFill: =RGBA(0, 120, 212, 1)
+            Visible: =AparecerLoad
+            Width: =1366
+            ZIndex: =11
+
+        "Spinner1 As 'Controle giratório'":
+            Appearance: ='Spinner.Appearance'.Primary
+            DisplayMode: =DisplayMode.Edit
+            Height: =768
+            LabelPosition: ='Spinner.LabelPosition'.Above
+            SpinnerSize: ='Spinner.SpinnerSize'.Huge
+            Visible: =AparecerLoad
+            Width: =1366
             X: =0
             Y: =0
-            ZIndex: =5
-
-            DataCardKey2 As label:
-                AutoHeight: =true
-                BorderColor: =RGBA(0, 0, 0, 0)
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =2
-                Color: =RGBA(9, 33, 98, 1)
-                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisabledColor: =RGBA(161, 159, 157, 1)
-                FocusedBorderThickness: =4
-                Font: =Font.'Segoe UI'
-                FontWeight: =FontWeight.Semibold
-                Height: =34
-                PaddingLeft: =0
-                Size: =13
-                Text: ="Attachments"
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue2 As attachments:
-                AddAttachmentText: ="Attach file"
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                BorderStyle: =BorderStyle.None
-                BorderThickness: =2
-                Color: =RGBA(50, 49, 48, 1)
-                DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisabledColor: =RGBA(161, 159, 157, 1)
-                DisabledFill: =RGBA(242, 242, 241, 0)
-                DisplayMode: =Parent.DisplayMode
-                Fill: =RGBA(245, 245, 245, 1)
-                FocusedBorderThickness: =4
-                Font: =Font.'Segoe UI'
-                Height: =156
-                HoverColor: =RGBA(50, 49, 48, 1)
-                HoverFill: =RGBA(245, 245, 245, 1)
-                IsInDataCard: =true
-                ItemColor: =RGBA(0, 0, 0, 1)
-                ItemFill: =RGBA(0, 120, 212, 1)
-                ItemHoverColor: =RGBA(50, 49, 48, 1)
-                ItemHoverFill: =RGBA(245, 245, 245, 1)
-                Items: =Parent.Default
-                ItemSpacing: =12
-                NoAttachmentsColor: =RGBA(161, 159, 157, 1)
-                NoAttachmentsText: ="There is nothing attached."
-                OnAddFile: |-
-                    =Clear(ErrosEncontrados);
-                    SubmitForm(formDoInput);
-                    Set(
-                        RetornoJson,
-                        'InputEmMassa-DataGathering'.Run(formDoInput.LastSubmit.ID).returnflow)
-                    ;
-                    Set(RetornoJson,Substitute(
-                        RetornoJson,"["&Char(34),"{"))
-                    ;
-                    Set(RetornoJson,Substitute(
-                        RetornoJson,Char(34)&"]","}"))
-                    ;
-                    ClearCollect(
-                        RetornoJson2,
-                        ForAll(
-                            Table(ParseJSON(RetornoJson).Dados),
-                            {
-                                ID: "",
-                                Port_Pair: Text(ThisRecord.Value.Port_Pair),
-                                Comments_BAT: Text(ThisRecord.Value.Comments_BAT),
-                                'Transshipment_restriction_(Y/N)': Text(ThisRecord.Value.'Transshipment_restriction_(Y/N)'),
-                                'Dangerous_Goods_Y/N': Text(ThisRecord.Value.'Dangerous_Goods_Y/N'),
-                                Market_SPOC: Text(ThisRecord.Value.Market_SPOC),
-                                End_Market_Responsible: Text(ThisRecord.Value.End_Market_Responsible),
-                                BAT_Region: Text(ThisRecord.Value.BAT_Region),
-                                BAT_entity_responsible_for_the_payment_: Text(ThisRecord.Value.BAT_entity_responsible_for_the_payment_),
-                                Service_Structure: Text(ThisRecord.Value.Service_Structure),
-                                POL_Code: Text(ThisRecord.Value.POL_Code),
-                                Origin_Country: Text(ThisRecord.Value.Origin_Country),
-                                'Origin_City_(for_Pre-Carriage_Pickup_Only)': Text(ThisRecord.Value.'Origin_City_(for_Pre-Carriage_Pickup_Only)'),
-                                Pick_Up_Address: Text(ThisRecord.Value.Pick_Up_Address),
-                                POD_Code: Text(ThisRecord.Value.POD_Code),
-                                Destination_Country: Text(ThisRecord.Value.Destination_Country),
-                                'Destination_City_(for_On-Carriage_Delivery_Only)': Text(ThisRecord.Value.'Destination_City_(for_On-Carriage_Delivery_Only)'),
-                                Delivery_Address: Text(ThisRecord.Value.Delivery_Address),
-                                Equipment_Type: Text(ThisRecord.Value.Equipment_Type),
-                                Commodity: Text(ThisRecord.Value.Commodity),
-                                'Total_Volume_(CTR)': Text(ThisRecord.Value.'Total_Volume_(CTR)'),
-                                '_of_CTR_(April)': Text(ThisRecord.Value.'_of_CTR_(April)'),
-                                '_of_CTR_(May)': Text(ThisRecord.Value.'_of_CTR_(May)'),
-                                '_of_CTR_(June)': Text(ThisRecord.Value.'_of_CTR_(June)'),
-                                '_of_CTR_(July)': Text(ThisRecord.Value.'_of_CTR_(July)'),
-                                '_of_CTR_(August)': Text(ThisRecord.Value.'_of_CTR_(August)'),
-                                '_of_CTR_(September)': Text(ThisRecord.Value.'_of_CTR_(September)'),
-                                '_of_CTR_(October)': Text(ThisRecord.Value.'_of_CTR_(October)'),
-                                '_of_CTR_(November)': Text(ThisRecord.Value.'_of_CTR_(November)'),
-                                '_of_CTR_(December)': Text(ThisRecord.Value.'_of_CTR_(December)'),
-                                '_of_CTR_(January)': Text(ThisRecord.Value.'_of_CTR_(January)'),
-                                '_of_CTR_(February)': Text(ThisRecord.Value.'_of_CTR_(February)'),
-                                '_of_CTR_(March)': Text(ThisRecord.Value.'_of_CTR_(March)'),
-                                'Requested_DEM_Time_at_POL_(Days)': Text(ThisRecord.Value.'Requested_DEM_Time_at_POL_(Days)'),
-                                'Requested_DET_Time_at_POL_(Days)': Text(ThisRecord.Value.'Requested_DET_Time_at_POL_(Days)'),
-                                'Requested_DEM_Time_at_POD_(Days)': Text(ThisRecord.Value.'Requested_DEM_Time_at_POD_(Days)'),
-                                'Requested_DET_Time_at_POD_(Days)': Text(ThisRecord.Value.'Requested_DET_Time_at_POD_(Days)')
-                            }
-                        )
-                    );
-                    ForAll(
-                        Sequence(CountRows(RetornoJson2)),
-                        Patch(
-                            RetornoJson2,
-                            Index(
-                                RetornoJson2,
-                                Value
-                            ),
-                            {ID: Value}
-                        )
-                    );
-                    ForAll(
-                        RetornoJson2,
-                        If(
-                            Or(
-                                Trim(ThisRecord.Service_Structure) = "DTD",
-                                Trim(ThisRecord.Service_Structure) = "DTP"
-                            ) And ThisRecord.'Origin_City_(for_Pre-Carriage_Pickup_Only)' = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Origin_City_(for_Pre_Carriage_Pickup_Only)"
-                                }
-                            )
-                        );
-                        If(
-                            Or(
-                                Trim(ThisRecord.Service_Structure) = "DTD",
-                                Trim(ThisRecord.Service_Structure) = "DTP"
-                            ) And ThisRecord.Pick_Up_Address = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Pick_Up_Address"
-                                }
-                            )
-                        );
-                        If(
-                            Or(
-                                Trim(ThisRecord.Service_Structure) = "PTD",
-                                Trim(ThisRecord.Service_Structure) = "DTD"
-                            ) And ThisRecord.'Destination_City_(for_On-Carriage_Delivery_Only)' = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Destination_City_(for_On-Carriage_Delivery_Only)"
-                                }
-                            )
-                        );
-                        If(
-                            Or(
-                                Trim(ThisRecord.Service_Structure) = "PTD",
-                                Trim(ThisRecord.Service_Structure) = "DTD"
-                            ) And ThisRecord.Delivery_Address = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Delivery_Address"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.Service_Structure) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Service_Structure"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.Port_Pair) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Port_Pair"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.Port_Pair) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Port_Pair"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'Dangerous_Goods_Y/N') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Dangerous_Goods_Y/N"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.Market_SPOC) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Market_SPOC"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.End_Market_Responsible) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "End_Market_Responsible"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.BAT_Region) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "BAT_Region"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.BAT_entity_responsible_for_the_payment_) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "BAT_entity_responsible_for_the_payment_"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.POL_Code) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "POL_Code"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.Origin_Country) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Origin_Country"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.POD_Code) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "POD_Code"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.Destination_Country) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Destination_Country"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.Equipment_Type) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Equipment_Type"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.Commodity) = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Commodity"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'Total_Volume_(CTR)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Total_Volume_(CTR)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(April)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(April)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(May)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(May)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(June)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(June)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(July)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(July)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(August)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(August)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(September)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(September)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(October)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(October)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(November)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(November)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(December)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(December)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(January)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(January)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(February)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(February)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'_of_CTR_(March)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "_of_CTR_(March)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'Requested_DEM_Time_at_POL_(Days)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Requested_DEM_Time_at_POL_(Days)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'Requested_DET_Time_at_POL_(Days)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Requested_DET_Time_at_POL_(Days)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'Requested_DEM_Time_at_POD_(Days)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Requested_DEM_Time_at_POD_(Days)"
-                                }
-                            )
-                        );
-                        If(
-                            Trim(ThisRecord.'Requested_DET_Time_at_POD_(Days)') = "",
-                            Collect(
-                                ErrosEncontrados,
-                                {
-                                    Linha: ThisRecord.ID,
-                                    Coluna: "Requested_DET_Time_at_POD_(Days)"
-                                }
-                            )
-                        )
-                    )
-                PaddingBottom: =5
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                PaddingRight: =5
-                PaddingTop: =5
-                PressedColor: =RGBA(255, 255, 255, 1)
-                PressedFill: =RGBA(0, 120, 212, 1)
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey2.Y + DataCardKey2.Height + 5
-                ZIndex: =2
+            ZIndex: =12
 
