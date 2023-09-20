@@ -180,7 +180,7 @@
     "dependents": [],
     "id": "70675cc1-00d1-4cc9-86ef-e6321b176e79"
   },
-  "7942faee-419d-438c-b198-826408680269": {
+  "9a6d965b-c73e-4f9b-992d-82e43a781c55": {
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
@@ -200,11 +200,11 @@
     },
     "datasets": {},
     "dataSources": [
-      "PowerApp->JsonTabelaData,Aplicaracada,Compor"
+      "TabelaJsonExcel"
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "7942faee-419d-438c-b198-826408680269"
+    "id": "9a6d965b-c73e-4f9b-992d-82e43a781c55"
   },
   "b9dca143-74be-417f-be29-6091e1eb3f35": {
     "connectionRef": {
