@@ -892,7 +892,10 @@
                         PressedColor: =RGBA(16, 110, 190, 1)
                         PressedFill: =RGBA(0, 0, 0, 0)
                         TabIndex: =0
-                        Visible: =And(!editMode, !newMode, !deleteMode, Open)
+                        Visible: |
+                            =
+                            And(!editMode, !newMode, !deleteMode, Open,
+                            If( RecordsGallery1.Selected.'Criado por'.DisplayName = UsuáriosdoOffice365.MyProfile().DisplayName,true,false))
                         Width: =50
                         ZIndex: =6
 
