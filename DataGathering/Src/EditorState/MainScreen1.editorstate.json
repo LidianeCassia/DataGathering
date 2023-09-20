@@ -39621,7 +39621,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "EditIconButton1",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -45655,7 +45655,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -50609,7 +50609,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%NewRecordButtonBarContainer.ID%",
       "Name": "NewRecordButtonBarContainer1",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -50844,7 +50844,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%NewRecordLabel.ID%",
       "Name": "NewRecordLabel1",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -56041,7 +56041,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%RecordsGallery.ID%",
       "Name": "RecordsGallery1",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -57298,7 +57298,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "ResetFormButton1",
-      "ParentIndex": 3,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -57943,7 +57943,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%SearchContainer.ID%",
       "Name": "SearchContainer1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -58124,7 +58124,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SearchContainer1_1_CBC",
-      "ParentIndex": 0,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -58309,7 +58309,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SearchContainer1_2",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -58567,7 +58567,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SearchContainer1_3",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

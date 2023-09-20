@@ -90,8 +90,8 @@ Screen1 As screen:
             Set(Close,true);
             Notify("Close with Sucess!",NotificationType.Success);
             
-            Collect(CollectionData,'Data GatheringMain');
-            Set(VarCollJson, JSON(CollectionData,JSONFormat.IncludeBinaryData))
+            Collect(CollectionData,'Data GatheringMain'); //cria colletion
+            Set(VarCollJson, JSON(CollectionData,JSONFormat.IncludeBinaryData & JSONFormat.IgnoreUnsupportedTypes)) //collection em Json
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)
@@ -146,7 +146,7 @@ Screen1 As screen:
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =RGBA(14, 43, 99, 0.8)
-        OnSelect: =
+        OnSelect: ='PowerApp->JsonTabelaData,Aplicaracada,Compor'.Run(VarCollJson,VarCollJson)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)
@@ -251,11 +251,11 @@ Screen1 As screen:
         DisabledColor: =RGBA(161, 159, 157, 1)
         FocusedBorderThickness: =4
         Font: =Font.'Segoe UI'
-        Height: =135
+        Height: =151
         Size: =13
-        Text: =VarCollJson
-        Width: =424
-        X: =385
-        Y: =579
+        Text: =""
+        Width: =1150
+        X: =48
+        Y: =564
         ZIndex: =12
 
