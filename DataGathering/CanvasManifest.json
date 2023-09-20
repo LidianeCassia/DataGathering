@@ -98,7 +98,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
-    "BindingErrorCount": 15,
+    "BindingErrorCount": 1,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -133,9 +133,8 @@
   },
   "ScreenOrder": [
     "Start",
-    "Screen1",
+    "MenuDG",
     "MainScreen1",
-    "AddMultilpletTest",
     "BaseInput"
   ]
 }
