@@ -7070,7 +7070,8 @@
                                     ErrosEncontrados,
                                     {
                                         Linha: ThisRecord.ID,
-                                        Coluna: "_of_CTR_(January)"
+                                        Coluna: "_of_CTR_(January)",
+                                        Note: "No data. The data in this column is mandatory"
                                     }
                                 )
                             );
