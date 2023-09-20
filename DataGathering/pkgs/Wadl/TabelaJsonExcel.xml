@@ -2,11 +2,11 @@
   <doc title="TabelaJsonExcel" />
   <grammars>
     <jsonTypes targetNamespace="https://europe-001.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
-      <string name="ManualTriggerInput_AnalisarJSON_Conte_uxFA_do_def" />
-      <string name="ManualTriggerInput_AnalisarJSON_Conte_uxFA_do_1_def" />
+      <string name="ManualTriggerInput_Enviarumemail_ux28_V2_ux29__Para_def" />
+      <string name="ManualTriggerInput_Enviarumemail_ux28_V2_ux29__Corpo_def" />
       <object name="ManualTriggerInput">
-        <property name="AnalisarJSON_Conteúdo" type="string" />
-        <property name="AnalisarJSON_Conteúdo_1" type="string" />
+        <property name="Enviarumemail(V2)_Para" type="string" />
+        <property name="Enviarumemail(V2)_Corpo" type="string" />
       </object>
     </jsonTypes>
   </grammars>
@@ -20,8 +20,8 @@
             <doc title="The api version" />
           </param>
           <representation mediaType="application/json">
-            <param style="plain" name="AnalisarJSON_Conteúdo" path="/AnalisarJSON_Conteúdo" type="xs:string" required="true" />
-            <param style="plain" name="AnalisarJSON_Conteúdo_1" path="/AnalisarJSON_Conteúdo_1" type="xs:string" required="true" />
+            <param style="plain" name="Enviarumemail(V2)_Para" path="/Enviarumemail(V2)_Para" type="xs:string" required="true" />
+            <param style="plain" name="Enviarumemail(V2)_Corpo" path="/Enviarumemail(V2)_Corpo" type="xs:string" required="true" />
           </representation>
         </request>
       </method>

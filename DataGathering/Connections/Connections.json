@@ -1,39 +1,17 @@
 {
-  "339b2c39-291d-4bcf-8ae6-2cf98c8203ac": {
-    "appActions": [],
+  "1a87135a-774b-4abf-b589-9decc0db3405": {
     "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Fluxos lógicos",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "9b9cd1ee-9dbf-4b9c-abc5-7a443aa6eba4": {
-          "value": "shared_onedriveforbusiness"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "9f2ca7e7-7c22-48ae-8f28-d5a8a561a765"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_onedriveforbusiness": {
-          "value": "9b9cd1ee-9dbf-4b9c-abc5-7a443aa6eba4"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "9f2ca7e7-7c22-48ae-8f28-d5a8a561a765"
-        }
-      }
+      "displayName": "Excel Online (Business)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/excelonlinebusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness"
     },
     "datasets": {},
-    "dataSources": [
-      "ExportarExcel"
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "ceb6cd90-2711-4844-a624-7ddb44f51b99"
     ],
-    "dependencies": {
-      "shared_onedriveforbusiness": "9b9cd1ee-9dbf-4b9c-abc5-7a443aa6eba4"
-    },
-    "dependents": [],
-    "id": "339b2c39-291d-4bcf-8ae6-2cf98c8203ac"
+    "id": "1a87135a-774b-4abf-b589-9decc0db3405"
   },
   "363c978b-2903-4c37-a9ee-2f857d5c0016": {
     "appActions": [
@@ -94,73 +72,9 @@
     ],
     "dependencies": {},
     "dependents": [
-      "b9dca143-74be-417f-be29-6091e1eb3f35"
+      "ceb6cd90-2711-4844-a624-7ddb44f51b99"
     ],
     "id": "363c978b-2903-4c37-a9ee-2f857d5c0016"
-  },
-  "40679cce-2d70-4942-a074-41d2731b67cc": {
-    "connectionRef": {
-      "displayName": "Excel Online (Business)",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/excelonlinebusiness/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "b9dca143-74be-417f-be29-6091e1eb3f35"
-    ],
-    "id": "40679cce-2d70-4942-a074-41d2731b67cc"
-  },
-  "64d671e2-2b81-4864-a26a-04a357b44b29": {
-    "connectionRef": {
-      "displayName": "OneDrive for Business",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1647/1.0.1647.3361/onedriveforbusiness/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_onedriveforbusiness"
-    },
-    "datasets": {},
-    "dataSources": [],
-    "dependencies": {},
-    "dependents": [
-      "b9dca143-74be-417f-be29-6091e1eb3f35"
-    ],
-    "id": "64d671e2-2b81-4864-a26a-04a357b44b29"
-  },
-  "6f02847e-0365-4238-9c52-4378b8cc057a": {
-    "appActions": [],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Fluxos lógicos",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "e1a230c4-bd07-4acd-ad50-607d9796f878": {
-          "value": "shared_sharepointonline"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "15ffab7e-efb4-4e40-90a8-04bf84d62bff"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_sharepointonline": {
-          "value": "e1a230c4-bd07-4acd-ad50-607d9796f878"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "15ffab7e-efb4-4e40-90a8-04bf84d62bff"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "PegarTodosOsdadosDoSharepoint"
-    ],
-    "dependencies": {
-      "shared_sharepointonline": "e1a230c4-bd07-4acd-ad50-607d9796f878"
-    },
-    "dependents": [],
-    "id": "6f02847e-0365-4238-9c52-4378b8cc057a"
   },
   "70675cc1-00d1-4cc9-86ef-e6321b176e79": {
     "appActions": [],
@@ -180,7 +94,27 @@
     "dependents": [],
     "id": "70675cc1-00d1-4cc9-86ef-e6321b176e79"
   },
-  "9a6d965b-c73e-4f9b-992d-82e43a781c55": {
+  "bebcaf74-d267-4078-acc4-8b9716d61693": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "ceb6cd90-2711-4844-a624-7ddb44f51b99"
+    ],
+    "id": "bebcaf74-d267-4078-acc4-8b9716d61693"
+  },
+  "ceb6cd90-2711-4844-a624-7ddb44f51b99": {
     "connectionRef": {
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
@@ -202,74 +136,12 @@
     "dataSources": [
       "TabelaJsonExcel"
     ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "9a6d965b-c73e-4f9b-992d-82e43a781c55"
-  },
-  "b9dca143-74be-417f-be29-6091e1eb3f35": {
-    "connectionRef": {
-      "displayName": "Logic flows",
-      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1653/1.0.1653.3403/logicflows/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
-      "parameterHints": {
-        "363c978b-2903-4c37-a9ee-2f857d5c0016": {
-          "value": "shared_sharepointonline"
-        },
-        "40679cce-2d70-4942-a074-41d2731b67cc": {
-          "value": "shared_excelonlinebusiness"
-        },
-        "64d671e2-2b81-4864-a26a-04a357b44b29": {
-          "value": "shared_onedriveforbusiness"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "61be3cae-c568-487f-8c35-b630c4197e22"
-        }
-      },
-      "parameterHintsV2": {
-        "shared_excelonlinebusiness": {
-          "value": "40679cce-2d70-4942-a074-41d2731b67cc"
-        },
-        "shared_onedriveforbusiness": {
-          "value": "64d671e2-2b81-4864-a26a-04a357b44b29"
-        },
-        "shared_sharepointonline": {
-          "value": "363c978b-2903-4c37-a9ee-2f857d5c0016"
-        },
-        "workflowEntityId": {},
-        "workflowName": {
-          "value": "61be3cae-c568-487f-8c35-b630c4197e22"
-        }
-      }
-    },
-    "datasets": {},
-    "dataSources": [
-      "InputEmMassa-DataGathering"
-    ],
     "dependencies": {
-      "shared_excelonlinebusiness": "40679cce-2d70-4942-a074-41d2731b67cc",
-      "shared_onedriveforbusiness": "64d671e2-2b81-4864-a26a-04a357b44b29",
+      "shared_excelonlinebusiness": "1a87135a-774b-4abf-b589-9decc0db3405",
+      "shared_office365": "bebcaf74-d267-4078-acc4-8b9716d61693",
       "shared_sharepointonline": "363c978b-2903-4c37-a9ee-2f857d5c0016"
     },
     "dependents": [],
-    "id": "b9dca143-74be-417f-be29-6091e1eb3f35"
-  },
-  "bebcaf74-d267-4078-acc4-8b9716d61693": {
-    "appActions": [],
-    "connectionRef": {
-      "apiTier": "Standard",
-      "displayName": "Office 365 Outlook",
-      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/ase-v3/1.0.1653.3402/office365/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365",
-      "parameterHints": {},
-      "parameterHintsV2": {}
-    },
-    "datasets": {},
-    "dataSources": [
-      "Office365Outlook"
-    ],
-    "dependencies": {},
-    "dependents": [],
-    "id": "bebcaf74-d267-4078-acc4-8b9716d61693"
+    "id": "ceb6cd90-2711-4844-a624-7ddb44f51b99"
   }
 }
