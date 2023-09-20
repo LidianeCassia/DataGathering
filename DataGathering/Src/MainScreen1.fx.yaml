@@ -94,7 +94,8 @@
                         HoverFill: =RGBA(0, 0, 0, 0)
                         Icon: =Icon.Add
                         OnSelect: |-
-                            =ResetForm(Form2);
+                            =Clear(ErrosEncontrados);
+                            ResetForm(Form2);
                             NewForm(Form2); 
                             UpdateContext({ newMode: true })
                         PaddingBottom: =10
@@ -138,7 +139,8 @@
                         Icon: =Icon.AddLibrary
                         LayoutMinHeight: =40
                         OnSelect: |-
-                            =UpdateContext({CtxImport:true});
+                            =Clear(ErrosEncontrados);
+                            UpdateContext({CtxImport:true});
                             UpdateContext({AparecerForm:DisplayMode.Disabled});
                             NewForm(formDoInput)
                         PaddingBottom: =5
@@ -6429,6 +6431,53 @@
         Y: =16
         ZIndex: =2
 
+    Icon5 As icon.Add:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(14, 43, 99, 1)
+        DisabledBorderColor: =RGBA(245, 245, 245, 1)
+        DisabledColor: =RGBA(225, 223, 221, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =30
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(16, 110, 190, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Filter
+        OnSelect: |-
+            =UpdateContext({CtxClearFilter:true});
+            UpdateContext({CtxClearFilter:false})
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =RGBA(16, 110, 190, 1)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Tooltip: ="Clear Filter"
+        Width: =30
+        X: =351
+        Y: =114
+        ZIndex: =3
+
+    Icon5_1 As icon.Add:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Color: =RGBA(14, 43, 99, 1)
+        DisabledBorderColor: =RGBA(245, 245, 245, 1)
+        DisabledColor: =RGBA(225, 223, 221, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =15
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =RGBA(16, 110, 190, 1)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Cancel
+        OnSelect: |-
+            =UpdateContext({CtxClearFilter:true});
+            UpdateContext({CtxClearFilter:false})
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =RGBA(16, 110, 190, 1)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =20
+        X: =339
+        Y: =124
+        ZIndex: =4
+
     Container1 As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Fill: =RGBA(207, 207, 207, 0.8)
@@ -6439,7 +6488,7 @@
         RadiusTopRight: =4
         Visible: =CtxImport
         Width: =1366
-        ZIndex: =4
+        ZIndex: =5
 
         Label4 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -6753,7 +6802,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.Service_Structure) = Blank(),
+                                Trim(ThisRecord.Service_Structure) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6775,7 +6824,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.Port_Pair) = Blank(),
+                                Trim(ThisRecord.Port_Pair) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6786,7 +6835,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'Dangerous_Goods_Y/N') = Blank(),
+                                Trim(ThisRecord.'Dangerous_Goods_Y/N') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6797,7 +6846,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.Market_SPOC) = Blank(),
+                                Trim(ThisRecord.Market_SPOC) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6808,7 +6857,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.End_Market_Responsible) = Blank(),
+                                Trim(ThisRecord.End_Market_Responsible) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6819,7 +6868,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.BAT_Region) = Blank(),
+                                Trim(ThisRecord.BAT_Region) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6830,7 +6879,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.BAT_entity_responsible_for_the_payment_) = Blank(),
+                                Trim(ThisRecord.BAT_entity_responsible_for_the_payment_) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6841,7 +6890,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.POL_Code) = Blank(),
+                                Trim(ThisRecord.POL_Code) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6852,7 +6901,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.Origin_Country) = Blank(),
+                                Trim(ThisRecord.Origin_Country) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6863,7 +6912,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.POD_Code) = Blank(),
+                                Trim(ThisRecord.POD_Code) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6874,7 +6923,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.Destination_Country) = Blank(),
+                                Trim(ThisRecord.Destination_Country) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6885,7 +6934,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.Equipment_Type) = Blank(),
+                                Trim(ThisRecord.Equipment_Type) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6896,7 +6945,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.Commodity) = Blank(),
+                                Trim(ThisRecord.Commodity) = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6907,7 +6956,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'Total_Volume_(CTR)') = Blank(),
+                                Trim(ThisRecord.'Total_Volume_(CTR)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6918,7 +6967,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(April)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(April)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6929,7 +6978,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(May)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(May)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6940,7 +6989,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(June)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(June)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6951,7 +7000,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(July)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(July)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6962,7 +7011,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(August)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(August)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6973,7 +7022,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(September)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(September)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6984,7 +7033,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(October)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(October)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -6995,7 +7044,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(November)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(November)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7005,7 +7054,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(December)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(December)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7016,7 +7065,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(January)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(January)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7026,7 +7075,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(February)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(February)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7037,7 +7086,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'_of_CTR_(March)') = Blank(),
+                                Trim(ThisRecord.'_of_CTR_(March)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7048,7 +7097,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'Requested_DEM_Time_at_POL_(Days)') = Blank(),
+                                Trim(ThisRecord.'Requested_DEM_Time_at_POL_(Days)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7059,7 +7108,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'Requested_DET_Time_at_POL_(Days)') = Blank(),
+                                Trim(ThisRecord.'Requested_DET_Time_at_POL_(Days)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7070,7 +7119,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'Requested_DEM_Time_at_POD_(Days)') = Blank(),
+                                Trim(ThisRecord.'Requested_DEM_Time_at_POD_(Days)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7081,7 +7130,7 @@
                                 )
                             );
                             If(
-                                Trim(ThisRecord.'Requested_DET_Time_at_POD_(Days)') = Blank(),
+                                Trim(ThisRecord.'Requested_DET_Time_at_POD_(Days)') = "",
                                 Collect(
                                     ErrosEncontrados,
                                     {
@@ -7220,51 +7269,4 @@
             X: =0
             Y: =0
             ZIndex: =12
-
-    Icon5 As icon.Add:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        Color: =RGBA(14, 43, 99, 1)
-        DisabledBorderColor: =RGBA(245, 245, 245, 1)
-        DisabledColor: =RGBA(225, 223, 221, 1)
-        DisabledFill: =RGBA(0, 0, 0, 0)
-        FocusedBorderThickness: =4
-        Height: =30
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: =RGBA(16, 110, 190, 1)
-        HoverFill: =RGBA(0, 0, 0, 0)
-        Icon: =Icon.Filter
-        OnSelect: |-
-            =UpdateContext({CtxClearFilter:true});
-            UpdateContext({CtxClearFilter:false})
-        PressedBorderColor: =RGBA(0, 0, 0, 0)
-        PressedColor: =RGBA(16, 110, 190, 1)
-        PressedFill: =RGBA(0, 0, 0, 0)
-        Tooltip: ="Clear Filter"
-        Width: =30
-        X: =351
-        Y: =114
-        ZIndex: =5
-
-    Icon5_1 As icon.Add:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        Color: =RGBA(14, 43, 99, 1)
-        DisabledBorderColor: =RGBA(245, 245, 245, 1)
-        DisabledColor: =RGBA(225, 223, 221, 1)
-        DisabledFill: =RGBA(0, 0, 0, 0)
-        FocusedBorderThickness: =4
-        Height: =15
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: =RGBA(16, 110, 190, 1)
-        HoverFill: =RGBA(0, 0, 0, 0)
-        Icon: =Icon.Cancel
-        OnSelect: |-
-            =UpdateContext({CtxClearFilter:true});
-            UpdateContext({CtxClearFilter:false})
-        PressedBorderColor: =RGBA(0, 0, 0, 0)
-        PressedColor: =RGBA(16, 110, 190, 1)
-        PressedFill: =RGBA(0, 0, 0, 0)
-        Width: =20
-        X: =339
-        Y: =124
-        ZIndex: =6
 
