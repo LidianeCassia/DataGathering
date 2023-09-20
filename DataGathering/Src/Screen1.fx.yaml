@@ -85,12 +85,13 @@ Screen1 As screen:
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =RGBA(14, 43, 99, 0.8)
-        OnSelect: |
+        OnSelect: |-
             =Set(Open,false);
             Set(Close,true);
             Notify("Close with Sucess!",NotificationType.Success);
             
-            Collect(CollectionData,'Data GatheringMain')
+            Collect(CollectionData,'Data GatheringMain');
+            Set(VarCollJson, JSON(CollectionData,JSONFormat.IncludeBinaryData))
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)
@@ -145,7 +146,7 @@ Screen1 As screen:
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =RGBA(14, 43, 99, 0.8)
-        OnSelect: =Download( ExportarExcel.Run(Substitute(JSON(ShowColumns('Data GatheringMain',"field_10"),JSONFormat.IndentFour),"null",""""&"""")).urltableonetracking)
+        OnSelect: =
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)
@@ -240,4 +241,21 @@ Screen1 As screen:
         X: =1240
         Y: =650
         ZIndex: =11
+
+    Label11 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =135
+        Size: =13
+        Text: =VarCollJson
+        Width: =424
+        X: =385
+        Y: =579
+        ZIndex: =12
 
