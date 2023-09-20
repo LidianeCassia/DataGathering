@@ -37508,7 +37508,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%DeleteConfirmDialogContainer.ID%",
       "Name": "DeleteConfirmDialogContainer1",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -50609,7 +50609,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%NewRecordButtonBarContainer.ID%",
       "Name": "NewRecordButtonBarContainer1",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -57535,7 +57535,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%RightContainer.ID%",
       "Name": "RightContainer1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -57943,7 +57943,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%SearchContainer.ID%",
       "Name": "SearchContainer1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -58124,7 +58124,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SearchContainer1_1_CBC",
-      "ParentIndex": 0,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -58309,7 +58309,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SearchContainer1_2",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -58567,7 +58567,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "SearchContainer1_3",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -60294,7 +60294,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "%SidebarContainer.ID%",
       "Name": "SidebarContainer1",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
