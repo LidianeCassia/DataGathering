@@ -79,7 +79,7 @@
         "Name": "Rectangle4_3",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 489,
+        "PublishOrderIndex": 485,
         "Rules": [
           {
             "Category": "Design",
@@ -287,7 +287,7 @@
         "Name": "Label2_3",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 490,
+        "PublishOrderIndex": 486,
         "Rules": [
           {
             "Category": "Data",
@@ -601,7 +601,7 @@
         "Name": "Rectangle2_135",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 492,
+        "PublishOrderIndex": 488,
         "Rules": [
           {
             "Category": "Design",
@@ -764,7 +764,7 @@
         "Name": "Rectangle2_136",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 493,
+        "PublishOrderIndex": 489,
         "Rules": [
           {
             "Category": "Design",
@@ -927,7 +927,7 @@
         "Name": "Rectangle2_137",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 494,
+        "PublishOrderIndex": 490,
         "Rules": [
           {
             "Category": "Design",
@@ -1090,7 +1090,7 @@
         "Name": "Rectangle2_138",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 495,
+        "PublishOrderIndex": 491,
         "Rules": [
           {
             "Category": "Design",
@@ -1253,7 +1253,7 @@
         "Name": "Rectangle2_139",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 496,
+        "PublishOrderIndex": 492,
         "Rules": [
           {
             "Category": "Design",
@@ -1416,7 +1416,7 @@
         "Name": "Rectangle2_140",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 497,
+        "PublishOrderIndex": 493,
         "Rules": [
           {
             "Category": "Design",
@@ -1579,7 +1579,7 @@
         "Name": "Rectangle2_141",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 498,
+        "PublishOrderIndex": 494,
         "Rules": [
           {
             "Category": "Design",
@@ -1742,7 +1742,7 @@
         "Name": "Rectangle2_142",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 499,
+        "PublishOrderIndex": 495,
         "Rules": [
           {
             "Category": "Design",
@@ -1905,7 +1905,7 @@
         "Name": "Rectangle2_143",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 500,
+        "PublishOrderIndex": 496,
         "Rules": [
           {
             "Category": "Design",
@@ -2041,7 +2041,7 @@
         "Name": "Group1_3",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 488,
+        "PublishOrderIndex": 484,
         "Rules": [
           {
             "Category": "Design",
@@ -2124,7 +2124,7 @@
         "Name": "Colors",
         "Parent": "Cabecalho",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 491,
+        "PublishOrderIndex": 487,
         "Rules": [
           {
             "Category": "Design",

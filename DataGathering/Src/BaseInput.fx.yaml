@@ -1,0 +1,4 @@
+BaseInput As screen:
+    Fill: =RGBA(236, 236, 235, 1)
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+

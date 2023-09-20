@@ -6006,6 +6006,559 @@
             Y: =314
             ZIndex: =6
 
+            Anexos_DataCard1 As typedDataCard.attachmentsEditCard:
+                BorderColor: =RGBA(245, 245, 245, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="{Attachments}"
+                Default: =ThisItem.Anexos
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@'Input em massa - temporário'],DataSourceInfo.DisplayName,"{Attachments}")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =221
+                Required: =false
+                Update: =DataCardValue1.Attachments
+                Width: =294
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey1 As label:
+                    AutoHeight: =true
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(0, 48, 84, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(161, 159, 157, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Semibold
+                    Height: =34
+                    PaddingLeft: =0
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue1 As attachments:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(50, 49, 48, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(161, 159, 157, 1)
+                    DisabledFill: =RGBA(242, 242, 241, 0)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(245, 245, 245, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =158
+                    HoverColor: =RGBA(50, 49, 48, 1)
+                    HoverFill: =RGBA(245, 245, 245, 1)
+                    IsInDataCard: =true
+                    ItemColor: =RGBA(0, 0, 0, 1)
+                    ItemFill: =RGBA(0, 120, 212, 1)
+                    ItemHoverColor: =RGBA(50, 49, 48, 1)
+                    ItemHoverFill: =RGBA(245, 245, 245, 1)
+                    Items: =Parent.Default
+                    ItemSpacing: =12
+                    NoAttachmentsColor: =RGBA(161, 159, 157, 1)
+                    OnAddFile: |-
+                        =UpdateContext({AparecerLoad: true})
+                        ;
+                        SubmitForm(formDoInput);
+                        Set(
+                            RetornoJson,
+                            'InputEmMassa-DataGathering'.Run(formDoInput.LastSubmit.ID).returnflow
+                        );
+                        Set(
+                            RetornoJson,
+                            Substitute(
+                                RetornoJson,
+                                "[" & Char(34),
+                                "{"
+                            )
+                        );
+                        Set(
+                            RetornoJson,
+                            Substitute(
+                                RetornoJson,
+                                Char(34) & "]",
+                                "}"
+                            )
+                        );
+                        ClearCollect(
+                            RetornoJson2,
+                            ForAll(
+                                Table(ParseJSON(RetornoJson).Dados),
+                                {
+                                    ID: "",
+                                    Port_Pair: Text(ThisRecord.Value.Port_Pair),
+                                    Comments_BAT: Text(ThisRecord.Value.Comments_BAT),
+                                    'Transshipment_restriction_(Y/N)': Text(ThisRecord.Value.'Transshipment_restriction_(Y/N)'),
+                                    'Dangerous_Goods_Y/N': Text(ThisRecord.Value.'Dangerous_Goods_Y/N'),
+                                    Market_SPOC: Text(ThisRecord.Value.Market_SPOC),
+                                    End_Market_Responsible: Text(ThisRecord.Value.End_Market_Responsible),
+                                    BAT_Region: Text(ThisRecord.Value.BAT_Region),
+                                    BAT_entity_responsible_for_the_payment_: Text(ThisRecord.Value.BAT_entity_responsible_for_the_payment_),
+                                    Service_Structure: Text(ThisRecord.Value.Service_Structure),
+                                    POL_Code: Text(ThisRecord.Value.POL_Code),
+                                    Origin_Country: Text(ThisRecord.Value.Origin_Country),
+                                    'Origin_City_(for_Pre-Carriage_Pickup_Only)': Text(ThisRecord.Value.'Origin_City_(for_Pre-Carriage_Pickup_Only)'),
+                                    Pick_Up_Address: Text(ThisRecord.Value.Pick_Up_Address),
+                                    POD_Code: Text(ThisRecord.Value.POD_Code),
+                                    Destination_Country: Text(ThisRecord.Value.Destination_Country),
+                                    'Destination_City_(for_On-Carriage_Delivery_Only)': Text(ThisRecord.Value.'Destination_City_(for_On-Carriage_Delivery_Only)'),
+                                    Delivery_Address: Text(ThisRecord.Value.Delivery_Address),
+                                    Equipment_Type: Text(ThisRecord.Value.Equipment_Type),
+                                    Commodity: Text(ThisRecord.Value.Commodity),
+                                    'Total_Volume_(CTR)': Text(ThisRecord.Value.'Total_Volume_(CTR)'),
+                                    '_of_CTR_(April)': Text(ThisRecord.Value.'_of_CTR_(April)'),
+                                    '_of_CTR_(May)': Text(ThisRecord.Value.'_of_CTR_(May)'),
+                                    '_of_CTR_(June)': Text(ThisRecord.Value.'_of_CTR_(June)'),
+                                    '_of_CTR_(July)': Text(ThisRecord.Value.'_of_CTR_(July)'),
+                                    '_of_CTR_(August)': Text(ThisRecord.Value.'_of_CTR_(August)'),
+                                    '_of_CTR_(September)': Text(ThisRecord.Value.'_of_CTR_(September)'),
+                                    '_of_CTR_(October)': Text(ThisRecord.Value.'_of_CTR_(October)'),
+                                    '_of_CTR_(November)': Text(ThisRecord.Value.'_of_CTR_(November)'),
+                                    '_of_CTR_(December)': Text(ThisRecord.Value.'_of_CTR_(December)'),
+                                    '_of_CTR_(January)': Text(ThisRecord.Value.'_of_CTR_(January)'),
+                                    '_of_CTR_(February)': Text(ThisRecord.Value.'_of_CTR_(February)'),
+                                    '_of_CTR_(March)': Text(ThisRecord.Value.'_of_CTR_(March)'),
+                                    'Requested_DEM_Time_at_POL_(Days)': Text(ThisRecord.Value.'Requested_DEM_Time_at_POL_(Days)'),
+                                    'Requested_DET_Time_at_POL_(Days)': Text(ThisRecord.Value.'Requested_DET_Time_at_POL_(Days)'),
+                                    'Requested_DEM_Time_at_POD_(Days)': Text(ThisRecord.Value.'Requested_DEM_Time_at_POD_(Days)'),
+                                    'Requested_DET_Time_at_POD_(Days)': Text(ThisRecord.Value.'Requested_DET_Time_at_POD_(Days)')
+                                }
+                            )
+                        );
+                        ForAll(
+                            Sequence(CountRows(RetornoJson2)),
+                            Patch(
+                                RetornoJson2,
+                                Index(
+                                    RetornoJson2,
+                                    Value
+                                ),
+                                {ID: Value}
+                            )
+                        );
+                        ForAll(
+                            RetornoJson2,
+                            If(
+                                Or(
+                                    Trim(ThisRecord.Service_Structure) = "DTD",
+                                    Trim(ThisRecord.Service_Structure) = "DTP"
+                                ) And ThisRecord.'Origin_City_(for_Pre-Carriage_Pickup_Only)' = "",
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Origin_City_(for_Pre_Carriage_Pickup_Only)",
+                                        Note: "The Service Structure field is marked as DTD or DTP, so this column must be filled in"
+                                    }
+                                )
+                            );
+                            If(
+                                Or(
+                                    Trim(ThisRecord.Service_Structure) = "DTD",
+                                    Trim(ThisRecord.Service_Structure) = "DTP"
+                                ) And ThisRecord.Pick_Up_Address = "",
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Pick_Up_Address",
+                                        Note: "The Service Structure field is marked as DTD or DTP, so this column must be filled in"
+                                    }
+                                )
+                            );
+                            If(
+                                Or(
+                                    Trim(ThisRecord.Service_Structure) = "PTD",
+                                    Trim(ThisRecord.Service_Structure) = "DTP"
+                                ) And ThisRecord.'Destination_City_(for_On-Carriage_Delivery_Only)' = "",
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Destination_City_(for_On-Carriage_Delivery_Only)",
+                                        Note: "The Service Structure field is marked as PTD or DTP, so this column must be filled in"
+                                    }
+                                )
+                            );
+                            If(
+                                Or(
+                                    Trim(ThisRecord.Service_Structure) = "PTD",
+                                    Trim(ThisRecord.Service_Structure) = "DTP"
+                                ) And ThisRecord.Delivery_Address = "",
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Delivery_Address",
+                                        Note: "The Service Structure field is marked as PTD or DTP, so this column must be filled in"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.Service_Structure) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Service_Structure",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.Port_Pair) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Port_Pair",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.Port_Pair) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Port_Pair",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'Dangerous_Goods_Y/N') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Dangerous_Goods_Y/N",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.Market_SPOC) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Market_SPOC",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.End_Market_Responsible) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "End_Market_Responsible",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.BAT_Region) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "BAT_Region",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.BAT_entity_responsible_for_the_payment_) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "BAT_entity_responsible_for_the_payment_",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.POL_Code) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "POL_Code",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.Origin_Country) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Origin_Country",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.POD_Code) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "POD_Code",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.Destination_Country) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Destination_Country",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.Equipment_Type) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Equipment_Type",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.Commodity) = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Commodity",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'Total_Volume_(CTR)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Total_Volume_(CTR)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(April)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(April)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(May)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(May)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(June)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(June)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(July)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(July)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(August)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(August)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(September)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(September)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(October)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(October)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(November)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(November)"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(December)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(December)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(January)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(January)"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(February)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(February)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'_of_CTR_(March)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "_of_CTR_(March)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'Requested_DEM_Time_at_POL_(Days)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Requested_DEM_Time_at_POL_(Days)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'Requested_DET_Time_at_POL_(Days)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Requested_DET_Time_at_POL_(Days)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'Requested_DEM_Time_at_POD_(Days)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Requested_DEM_Time_at_POD_(Days)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            );
+                            If(
+                                Trim(ThisRecord.'Requested_DET_Time_at_POD_(Days)') = Blank(),
+                                Collect(
+                                    ErrosEncontrados,
+                                    {
+                                        Linha: ThisRecord.ID,
+                                        Coluna: "Requested_DET_Time_at_POD_(Days)",
+                                        Note: "No data. The data in this column is mandatory"
+                                    }
+                                )
+                            )
+                        )
+                        ;
+                        UpdateContext({AparecerLoad: false});
+                        Navigate(BaseInput,ScreenTransition.Fade)
+                    PaddingBottom: =5
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 120, 212, 1)
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                    ZIndex: =2
+
         DataCardKey2_1 As label:
             BorderColor: =RGBA(0, 0, 0, 0)
             BorderStyle: =BorderStyle.None
