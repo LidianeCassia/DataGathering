@@ -2319,7 +2319,7 @@
                                 Color: =RGBA(50, 49, 48, 1)
                                 Default: |-
                                     =//Filter(Port;'PortPair ' = DataCardValue163.Text;IDPort)
-                                    LookUp(Port,'PortPair '= DataCardValue163.Text).IDPort & "_" & DataCardValue5.Selected.Code &"_"& DataCardValue15.Selected.EquipmentType &"_"& DataCardValue17.Selected.Commodity
+                                    LookUp(Port, DataCardValue163.Text = 'PortPair',IDPort) & "_" & DataCardValue5.Selected.Code &"_"& DataCardValue15.Selected.EquipmentType &"_"& DataCardValue17.Selected.Commodity
                                 DelayOutput: =true
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
