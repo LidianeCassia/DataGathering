@@ -85,10 +85,12 @@ Screen1 As screen:
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =RGBA(14, 43, 99, 0.8)
-        OnSelect: |-
+        OnSelect: |
             =Set(Open,false);
             Set(Close,true);
-            Notify("Close with Sucess!",NotificationType.Success)
+            Notify("Close with Sucess!",NotificationType.Success);
+            
+            Collect(CollectionData,'Data GatheringMain')
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)
@@ -143,8 +145,7 @@ Screen1 As screen:
         HoverBorderColor: =RGBA(0, 0, 0, 0)
         HoverColor: =RGBA(255, 255, 255, 1)
         HoverFill: =RGBA(14, 43, 99, 0.8)
-        OnSelect: |-
-            =Download("https://bat.sharepoint.com/sites/GBIN-DataGathering_Templatesetup/Lists/Data%20GatheringMain/AllItems.aspx")
+        OnSelect: =Download( ExportarExcel.Run(Substitute(JSON(ShowColumns('Data GatheringMain',"field_10"),JSONFormat.IndentFour),"null",""""&"""")).urltableonetracking)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(14, 43, 99, 0.8)

@@ -203,14 +203,200 @@
                         Width: =40
                         ZIndex: =2
 
-                SearchContainer1_1 As groupContainer.horizontalAutoLayoutContainer:
+                SearchContainer1_3 As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =0
+                    Height: =22
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =25
+                    LayoutMinWidth: =0
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =10
+                    ZIndex: =3
+
+                    SearchInput1_1 As text:
+                        BorderStyle: =BorderStyle.None
+                        Default: =""
+                        Fill: =RGBA(0, 0, 0, 0)
+                        FillPortions: =1
+                        HintText: ="Search"
+                        HoverFill: =RGBA(0, 0, 0, 0)
+                        LayoutMinWidth: =0
+                        PressedFill: =RGBA(0, 0, 0, 0)
+                        Reset: =CtxClearFilter
+                        Size: =11
+                        Tooltip: ="Search for Port Pair"
+                        ZIndex: =1
+
+                    Label8 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(14, 43, 99, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Size: =12
+                        Text: ="Market SPOC"
+                        Width: =120
+                        ZIndex: =2
+
+                    Label9 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(14, 43, 99, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Size: =12
+                        Text: ="Origin "
+                        Width: =120
+                        ZIndex: =3
+
+                    Label10 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(14, 43, 99, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
+                        Size: =12
+                        Text: ="Destination"
+                        Width: =120
+                        ZIndex: =4
+
+                SearchContainer1_2 As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =RGBA(245, 245, 245, 1)
                     FillPortions: =0
                     Height: =40
                     LayoutMinHeight: =100
                     LayoutMinWidth: =0
                     LayoutMode: =LayoutMode.Auto
-                    ZIndex: =3
+                    ZIndex: =4
+
+                    Dropdown2_1 As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(245, 245, 245, 1)
+                        ChevronBackground: =RGBA(245, 245, 245, 1)
+                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                        ChevronFill: =RGBA(50, 49, 48, 1)
+                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                        Color: =RGBA(50, 49, 48, 1)
+                        Default: =
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisabledFill: =RGBA(242, 242, 241, 0)
+                        Fill: =RGBA(245, 245, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(50, 49, 48, 1)
+                        HoverFill: =RGBA(245, 245, 245, 1)
+                        Items: =Sort(Distinct('Data GatheringMain',Market_SPOC.DisplayName),Value)
+                        PaddingBottom: =5
+                        PaddingLeft: =12
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        PressedBorderColor: =RGBA(16, 110, 190, 1)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 120, 212, 1)
+                        Reset: =CtxClearFilter
+                        SelectionColor: =RGBA(50, 49, 48, 1)
+                        SelectionFill: =RGBA(0, 120, 212, 1)
+                        Size: =12
+                        Tooltip: ="Market SPOC"
+                        Width: =120
+                        ZIndex: =1
+
+                    Dropdown1 As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(245, 245, 245, 1)
+                        ChevronBackground: =RGBA(245, 245, 245, 1)
+                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                        ChevronFill: =RGBA(50, 49, 48, 1)
+                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                        Color: =RGBA(50, 49, 48, 1)
+                        Default: =
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisabledFill: =RGBA(242, 242, 241, 0)
+                        Fill: =RGBA(245, 245, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(50, 49, 48, 1)
+                        HoverFill: =RGBA(245, 245, 245, 1)
+                        Items: =Distinct(Filter('Data GatheringMain', Market_SPOC.DisplayName = Dropdown2_1.Selected.Value),Origin_Country)
+                        PaddingBottom: =5
+                        PaddingLeft: =12
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        PressedBorderColor: =RGBA(16, 110, 190, 1)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 120, 212, 1)
+                        Reset: =CtxClearFilter
+                        SelectionColor: =RGBA(50, 49, 48, 1)
+                        SelectionFill: =RGBA(0, 120, 212, 1)
+                        Size: =12
+                        Tooltip: ="Origin Country"
+                        Width: =120
+                        ZIndex: =2
+
+                    Dropdown2 As dropdown:
+                        AllowEmptySelection: =true
+                        BorderColor: =RGBA(245, 245, 245, 1)
+                        ChevronBackground: =RGBA(245, 245, 245, 1)
+                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
+                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
+                        ChevronFill: =RGBA(50, 49, 48, 1)
+                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
+                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
+                        Color: =RGBA(50, 49, 48, 1)
+                        Default: =
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(161, 159, 157, 1)
+                        DisabledFill: =RGBA(242, 242, 241, 0)
+                        Fill: =RGBA(245, 245, 245, 1)
+                        Font: =Font.'Segoe UI'
+                        HoverBorderColor: =RGBA(16, 110, 190, 1)
+                        HoverColor: =RGBA(50, 49, 48, 1)
+                        HoverFill: =RGBA(245, 245, 245, 1)
+                        Items: =Distinct(Filter('Data GatheringMain', Market_SPOC.DisplayName = Dropdown2_1.Selected.Value),Destination_Country)
+                        PaddingBottom: =5
+                        PaddingLeft: =12
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        PressedBorderColor: =RGBA(16, 110, 190, 1)
+                        PressedColor: =RGBA(255, 255, 255, 1)
+                        PressedFill: =RGBA(0, 120, 212, 1)
+                        Reset: =CtxClearFilter
+                        SelectionColor: =RGBA(50, 49, 48, 1)
+                        SelectionFill: =RGBA(0, 120, 212, 1)
+                        Size: =12
+                        Tooltip: ="Destination Country"
+                        Width: =120
+                        ZIndex: =3
+
+                SearchContainer1_1_CBC As groupContainer.horizontalAutoLayoutContainer:
+                    Fill: =RGBA(245, 245, 245, 1)
+                    FillPortions: =0
+                    Height: =40
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =0
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =false
+                    ZIndex: =5
 
                     ComboBox5 As combobox:
                         BorderColor: =RGBA(245, 245, 245, 1)
@@ -319,7 +505,13 @@
                                 Origin_Country = Dropdown1.Selected.Value),
                              Or(
                                 IsBlank(Dropdown2.Selected.Value),
-                                Destination_Country = Dropdown2.Selected.Value)   
+                                Destination_Country = Dropdown2.Selected.Value),
+                            Or(
+                                IsBlank(Dropdown2_1.Selected.Value),
+                                Market_SPOC.DisplayName = Dropdown2_1.Selected.Value),
+                            StartsWith(Port_Pair,
+                                SearchInput1.Text
+                            )
                         ))
                     Layout: =Layout.Vertical
                     LayoutMinHeight: =287
@@ -331,7 +523,7 @@
                     TemplatePadding: =0
                     TemplateSize: =116
                     Transition: =Transition.Pop
-                    ZIndex: =4
+                    ZIndex: =6
 
                     Title2 As label:
                         Color: =RGBA(50, 49, 48, 1)
@@ -483,111 +675,7 @@
                     HoverFill: =RGBA(0, 120, 212, 1)
                     LayoutMinWidth: =200
                     PressedFill: =RGBA(0, 120, 212, 1)
-                    ZIndex: =5
-
-                SearchContainer1_2 As groupContainer.horizontalAutoLayoutContainer:
-                    Fill: =RGBA(245, 245, 245, 1)
-                    FillPortions: =0
-                    Height: =40
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =0
-                    LayoutMode: =LayoutMode.Auto
-                    ZIndex: =6
-
-                    Dropdown1 As dropdown:
-                        BorderColor: =RGBA(245, 245, 245, 1)
-                        ChevronBackground: =RGBA(245, 245, 245, 1)
-                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
-                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
-                        ChevronFill: =RGBA(50, 49, 48, 1)
-                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
-                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
-                        Color: =RGBA(50, 49, 48, 1)
-                        Default: ="Origin Country"
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                        DisabledColor: =RGBA(161, 159, 157, 1)
-                        DisabledFill: =RGBA(242, 242, 241, 0)
-                        Fill: =RGBA(245, 245, 245, 1)
-                        Font: =Font.'Segoe UI'
-                        HoverBorderColor: =RGBA(16, 110, 190, 1)
-                        HoverColor: =RGBA(50, 49, 48, 1)
-                        HoverFill: =RGBA(245, 245, 245, 1)
-                        Items: =Distinct('Data GatheringMain',Origin_Country)
-                        PaddingBottom: =5
-                        PaddingLeft: =12
-                        PaddingRight: =5
-                        PaddingTop: =5
-                        PressedBorderColor: =RGBA(16, 110, 190, 1)
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 120, 212, 1)
-                        Reset: =CtxClearFilter
-                        SelectionColor: =RGBA(50, 49, 48, 1)
-                        SelectionFill: =RGBA(0, 120, 212, 1)
-                        Size: =13
-                        Width: =120
-                        ZIndex: =1
-
-                    Dropdown2 As dropdown:
-                        BorderColor: =RGBA(245, 245, 245, 1)
-                        ChevronBackground: =RGBA(245, 245, 245, 1)
-                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
-                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
-                        ChevronFill: =RGBA(50, 49, 48, 1)
-                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
-                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
-                        Color: =RGBA(50, 49, 48, 1)
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                        DisabledColor: =RGBA(161, 159, 157, 1)
-                        DisabledFill: =RGBA(242, 242, 241, 0)
-                        Fill: =RGBA(245, 245, 245, 1)
-                        Font: =Font.'Segoe UI'
-                        HoverBorderColor: =RGBA(16, 110, 190, 1)
-                        HoverColor: =RGBA(50, 49, 48, 1)
-                        HoverFill: =RGBA(245, 245, 245, 1)
-                        Items: =Distinct('Data GatheringMain',Destination_Country)
-                        PaddingBottom: =5
-                        PaddingLeft: =12
-                        PaddingRight: =5
-                        PaddingTop: =5
-                        PressedBorderColor: =RGBA(16, 110, 190, 1)
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 120, 212, 1)
-                        SelectionColor: =RGBA(50, 49, 48, 1)
-                        SelectionFill: =RGBA(0, 120, 212, 1)
-                        Size: =13
-                        Width: =120
-                        ZIndex: =2
-
-                    Dropdown2_1 As dropdown:
-                        BorderColor: =RGBA(245, 245, 245, 1)
-                        ChevronBackground: =RGBA(245, 245, 245, 1)
-                        ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
-                        ChevronDisabledFill: =RGBA(161, 159, 157, 1)
-                        ChevronFill: =RGBA(50, 49, 48, 1)
-                        ChevronHoverBackground: =RGBA(245, 245, 245, 1)
-                        ChevronHoverFill: =RGBA(50, 49, 48, 1)
-                        Color: =RGBA(50, 49, 48, 1)
-                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                        DisabledColor: =RGBA(161, 159, 157, 1)
-                        DisabledFill: =RGBA(242, 242, 241, 0)
-                        Fill: =RGBA(245, 245, 245, 1)
-                        Font: =Font.'Segoe UI'
-                        HoverBorderColor: =RGBA(16, 110, 190, 1)
-                        HoverColor: =RGBA(50, 49, 48, 1)
-                        HoverFill: =RGBA(245, 245, 245, 1)
-                        Items: =Distinct('Data GatheringMain',Market_SPOC.DisplayName)
-                        PaddingBottom: =5
-                        PaddingLeft: =12
-                        PaddingRight: =5
-                        PaddingTop: =5
-                        PressedBorderColor: =RGBA(16, 110, 190, 1)
-                        PressedColor: =RGBA(255, 255, 255, 1)
-                        PressedFill: =RGBA(0, 120, 212, 1)
-                        SelectionColor: =RGBA(50, 49, 48, 1)
-                        SelectionFill: =RGBA(0, 120, 212, 1)
-                        Size: =13
-                        Width: =120
-                        ZIndex: =3
+                    ZIndex: =7
 
             RightContainer1 As groupContainer.verticalAutoLayoutContainer:
                 FillPortions: =7
@@ -1003,7 +1091,8 @@
                                 ChevronHoverBackground: =RGBA(245, 245, 245, 1)
                                 ChevronHoverFill: =RGBA(50, 49, 48, 1)
                                 Color: =RGBA(50, 49, 48, 1)
-                                Default: =Parent.Default
+                                Default: |
+                                    =LookUp(ServiceStructureOffered,Code = Parent.Default,ServiceStructureOffered)
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
                                 DisabledFill: =RGBA(242, 242, 241, 0)
@@ -1098,7 +1187,7 @@
                                 ChevronHoverBackground: =RGBA(245, 245, 245, 1)
                                 ChevronHoverFill: =RGBA(50, 49, 48, 1)
                                 Color: =RGBA(50, 49, 48, 1)
-                                Default: =Parent.Default
+                                Default: =LookUp(DataDefault,Code = Parent.Default,OriginCountry)
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
                                 DisabledFill: =RGBA(242, 242, 241, 0)
@@ -1193,7 +1282,7 @@
                                 ChevronHoverBackground: =RGBA(245, 245, 245, 1)
                                 ChevronHoverFill: =RGBA(50, 49, 48, 1)
                                 Color: =RGBA(50, 49, 48, 1)
-                                Default: =Parent.Default
+                                Default: =LookUp(DataDefault,Code = Parent.Default,OriginCountry)
                                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                 DisabledColor: =RGBA(161, 159, 157, 1)
                                 DisabledFill: =RGBA(242, 242, 241, 0)
