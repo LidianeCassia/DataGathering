@@ -72,7 +72,7 @@
     ],
     "dependencies": {},
     "dependents": [
-      "ceb6cd90-2711-4844-a624-7ddb44f51b99"
+      "b9dca143-74be-417f-be29-6091e1eb3f35"
     ],
     "id": "363c978b-2903-4c37-a9ee-2f857d5c0016"
   },
@@ -109,9 +109,7 @@
       "Office365Outlook"
     ],
     "dependencies": {},
-    "dependents": [
-      "ceb6cd90-2711-4844-a624-7ddb44f51b99"
-    ],
+    "dependents": [],
     "id": "bebcaf74-d267-4078-acc4-8b9716d61693"
   },
   "ceb6cd90-2711-4844-a624-7ddb44f51b99": {
