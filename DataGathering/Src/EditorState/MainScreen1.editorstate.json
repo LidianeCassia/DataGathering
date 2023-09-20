@@ -1795,7 +1795,9 @@
         "ZIndex",
         "BorderThickness",
         "FocusedBorderThickness",
-        "Size"
+        "Size",
+        "InputTextPlaceholder",
+        "IsSearchable"
       ],
       "DynamicProperties": [
         {
@@ -1848,6 +1850,16 @@
       "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
+        {
+          "Category": "Data",
+          "PropertyName": "InputTextPlaceholder",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "IsSearchable",
+          "RuleProviderType": "Unknown"
+        },
         {
           "Category": "Data",
           "PropertyName": "NavigateFields",
@@ -53515,7 +53527,8 @@
           "InvariantPropertyName": "Reset",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "Size"
       ],
       "DynamicProperties": [
         {
@@ -53591,6 +53604,11 @@
         {
           "Category": "Data",
           "PropertyName": "Reset",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Design",
+          "PropertyName": "Size",
           "RuleProviderType": "Unknown"
         },
         {
